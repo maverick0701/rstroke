@@ -20,6 +20,7 @@
     "node-sass-middleware": "^0.11.0",
     "nodemon": "^2.0.6",
     "passport": "^0.4.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "sass-middleware": "0.0.3"
   }
 }

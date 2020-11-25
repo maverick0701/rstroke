@@ -1,0 +1,112 @@
+html {
+  padding: 0px;
+  margin: 0px;
+  overflow: scroll;
+  scroll-behavior: smooth; }
+
+body {
+  background-color: #212121; }
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; }
+
+.btn-login, .btn-signup {
+  border: none;
+  background: none;
+  font-family: 'Roboto Slab', serif;
+  font-size: 2vw;
+  /* CHeck the above line for font size */
+  outline: 0 !important; }
+
+.btn-login {
+  color: whitesmoke; }
+
+.btn-signup {
+  color: #ffc700;
+  border: 2px solid #ffc700;
+  border-radius: 15px;
+  padding-bottom: 5px; }
+
+.btn-login:hover, .btn-signup:hover {
+  text-decoration: underline; }
+
+.navbar-index {
+  display: flex;
+  flex-direction: row;
+  float: right; }
+
+.login, .sign-up {
+  margin: 20px 1vw; }
+
+button {
+  padding: 0px 10px; }
+
+h1 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #ffc700;
+  font-size: 6.5vw;
+  margin-bottom: 0px; }
+
+h3 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: whitesmoke;
+  font-size: 4vw; }
+
+img {
+  height: 30vw;
+  width: 45vh;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px black;
+  position: absolute;
+  margin-left: 65%;
+  margin-top: -3%; }
+
+.herotxt {
+  /* border: 2px solid red; */
+  border-right: 4px solid whitesmoke;
+  width: 50%;
+  position: relative;
+  top: 35vh; }
+
+.maintxt {
+  font-size: 6rem;
+  padding-top: 10px; }
+
+.subtxt {
+  padding-right: 10px; }
+
+.maintxt, .subtxt {
+  padding-left: 10%; }
+
+.scrolldown {
+  color: whitesmoke;
+  font-size: 30px;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+a {
+  color: whitesmoke; }
+
+a:hover {
+  color: whitesmoke; }
+
+/* ******************************* */
+#section1 {
+  /* width: 100vw; */
+  height: 75vh;
+  background: blue; }
+
+.footer1 {
+  border: 2px solid red;
+  height: 25vh;
+  background-color: chartreuse; }
+
+.row {
+  border: 2px solid red; }
+
+.col {
+  color: white;
+  border: 1px dashed pink; }
