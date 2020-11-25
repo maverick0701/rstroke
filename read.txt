@@ -23,3 +23,9 @@ git push -u origin main
 5.npm install path
 6.npm install node-sass-middleware
 7.npm install multer
+8.npm i ejs
+9.npm i express-layout
+10.npm install multer
+11.npm install passport
+
+install mongo db https://docs.mongodb.com/guides/server/install/ version v4.4.0
