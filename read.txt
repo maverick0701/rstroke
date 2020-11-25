@@ -1,2 +1,25 @@
-1. Install Node https://nodejs.org/en/download/(LTS)
+Run On Terminal
 
+1. Install Node https://nodejs.org/en/download/(LTS)
+node -v to check if installed properly
+2.
+
+echo "# rstroke" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/maverick0701/rstroke.git
+git push -u origin main
+                
+                or 
+
+git remote add origin https://github.com/maverick0701/rstroke.git
+git branch -M main
+git push -u origin main
+
+3.npm install express
+4.npm install express-ejs-layouts
+5.npm install path
+6.npm install node-sass-middleware
+7.npm install multer
