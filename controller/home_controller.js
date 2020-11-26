@@ -1,4 +1,4 @@
 module.exports.home=function(req,res){
-    return res.render('_firstPage.ejs');
+    return res.render('_homePage.ejs');
 }
 

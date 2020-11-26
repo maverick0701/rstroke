@@ -15,6 +15,8 @@ app.use('/', require('./routes'));
 // app.use(cookieParser());
 app.set('view engine', 'ejs');
 
+app.use(express.static("./assets"));
+
 app.use(sassMiddleware({
     src:'./assets/scss',//from where to pick up css file for compilation
     dest:'./assets/css',
