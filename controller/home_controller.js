@@ -6,7 +6,17 @@ module.exports.home=function(req,res){
 
 module.exports.display=function(req,res)
 {
-    return res.render('_secondPage.ejs');
+    User.findOne({email:req.body.email},function(err,user){
+        if(!user)
+        {
+            return;
+        }
+        else
+        {
+            return res.render('_secondPage.ejs');
+        }
+    })
+    
 }
 
 
@@ -38,4 +48,12 @@ module.exports.create = function(req, res){
         }
 
     });
+}
+
+module.exports.destroySession = function(req, res){
+    req.logout();
+    // req.flash('success', 'You have logged out!');
+
+
+    return res.redirect('/');
 }

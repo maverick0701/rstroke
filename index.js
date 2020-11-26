@@ -1,6 +1,7 @@
 const express = require('express');
 const app=express();
 const port=8030;
+const cookieParser = require('cookie-parser');
 const expressLayouts = require('express-ejs-layouts');
 const sassMiddleware = require('node-sass-middleware');
 const session = require('express-session');
@@ -9,11 +10,13 @@ const db = require('./config/mongoose');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-oauth');
 app.use(express.urlencoded());
+app.use(cookieParser());
+
 app.use(expressLayouts);
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
-app.use('/', require('./routes'));
-// app.use(cookieParser());
+
+
 app.set('view engine', 'ejs');
 
 app.use(express.static("./assets"));
@@ -40,10 +43,7 @@ app.use(session({
 }));
 
 
-app.use(passport.initialize());
-app.use(passport.session());
 
-app.use(passport.setAuthenticatedUser);
 
 
 app.use(sassMiddleware({
@@ -54,6 +54,12 @@ app.use(sassMiddleware({
     prefix:'/css'//where should look into for css
 }));
 
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(passport.setAuthenticatedUser);
+
+
+app.use('/', require('./routes'));
 app.listen(port, function(err){
     if (err){
         console.log(`Error in running the server: ${err}`);

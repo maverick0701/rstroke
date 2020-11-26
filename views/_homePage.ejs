@@ -109,7 +109,7 @@
             </button>
         </div>
         <div class="modal-body">
-          <form action="/signIn">
+          <form action="/signIn" method="POST">
             <div class="login-contents">
               <div class="username-login">
                 <input type="text" name="email" placeholder="Enter UserName"required>
@@ -119,12 +119,13 @@
                 <input type="password" name="password"placeholder="Enter Password" minlength="8" required>
               </div>
             </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+              <button type="submit" class="btn btn-primary">Login</button>
+          </div>
           </form>
         </div>
-        <div class="modal-footer">
-            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-            <button type="button" class="btn btn-primary">Login</button>
-        </div>
+        
       </div>
     </div>
   </div>
