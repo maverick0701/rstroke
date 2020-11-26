@@ -13,7 +13,7 @@ module.exports.display=function(req,res)
         }
         else
         {
-            return res.render('_secondPage.ejs');
+            return res.redirect('/');
         }
     })
     
