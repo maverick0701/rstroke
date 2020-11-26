@@ -12,19 +12,28 @@
                 Profile
             </button>
         </div>
-       
+       <%if(!locals.user){%>
         <div class="login">
             <button type="button" class="btn-login" data-toggle="modal" data-target="#LoginModal">
                 Login
             </button>
         </div>
-
+          <%}else{%>
+            <div class="login">
+              <form action="/signOut" method="GET">
+                <button type="submit" class="btn-signup">
+                  Sign Out
+               </button>
+              </form>
+          </div>
+            <%}%>
+            <%if(!locals.user){%>
         <div class="sign-up">
             <button type="button" class="btn-signup" data-toggle="modal" data-target="#SignupModal">
                 Sign-Up
             </button>
         </div>
-        
+        <%}%>
     </div>
 
     <div class="content">
@@ -69,12 +78,13 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle"><%if(!locals.user){%>Login<%}else{%>Your Profile<%}%></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span id="cross-btn" aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
+          <%if(!locals.user){%>
           <form action="">
             <div class="login-contents">
               <div class="username-login">
@@ -90,6 +100,13 @@
               </div>
             </div>
           </form>
+          <%}else{%>
+            <div class="username-login">
+              <input type="text" placeholder="Name: <%=locals.user.name%>"  disabled>
+              <input type="text" placeholder="Email: <%=locals.user.email%>"disabled>
+             
+          </div>
+          <%}%>
         </div>
         <!-- <div class="modal-footer"> -->
             
@@ -101,7 +118,7 @@
 
 <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <%if(!locals.user){%>
+     
       <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
@@ -128,11 +145,7 @@
         </div>
         
       </div>
-      <%}else{%>
-        <h1>Name: <br><%=locals.user.name%></h1>
-        <h1>Email:<br><%=locals.user.email%></h1>
-
-        <%}%>
+      
     </div>
   </div>
 
