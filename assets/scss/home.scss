@@ -1,7 +1,7 @@
 html {
     padding: 0px;
     margin: 0px;
-    overflow: scroll;
+    /* overflow: scroll; */
     scroll-behavior: smooth;
 }
 
@@ -103,22 +103,129 @@ a:hover {
 /* ******************************* */
 #section1 {
     /* width: 100vw; */
-    height: 75vh;
-    background: blue;
+    height: 100vh;
 }
 .footer1 {
-    border: 2px solid red;
+    position: relative;
+    bottom: 0;
+    
+    /* border: 2px solid red; */
     height: 25vh;
-    background-color: chartreuse;
+    background-color: whitesmoke;
+    opacity: 0.8;
+    /* display: block; */
     
 }
 
 .row {
-    border: 2px solid red;
+    position: relative;
+    top: 40px;
 }
+
 .col {
     color: white;
-    border: 1px dashed pink;
+    /* border: 1px dashed pink; */
+    height: 450px;
+    width: 100%;
+    margin-bottom: 12.5vh;
 }
 
+.stepcard {
+    height: 400px;
+    width: 300px;
+    background-color: #ffc700;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px black ;
+    margin: 0px auto;
+    /* z-index: -10000; */
+}
 
+.stepcount {
+    color: whitesmoke;
+    margin: 0px auto;
+    text-align: center;
+    /* border: 2px solid green; */
+    font-size: 150%;
+    padding-bottom: 5px;
+    font-family: 'Roboto Slab', serif;
+    width: fit-content;
+}
+
+.mask-img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    box-shadow: 2px -0px 20px black inset;
+    background: #212121;
+    margin: 0px auto;
+    position: relative;
+    top: 30px;
+}
+/* .mask2 {
+    background: transparent;
+    position: relative;
+    top: -1px;
+    z-index: 99;
+} */
+.real-img {
+    margin: 0px;
+    padding: 0;
+    box-shadow: none;
+    height: 150px;
+    width: 150px;
+    /* position: relative; */
+    
+    
+    /* z-index: -1; */
+}
+.real-img-div {
+    width: fit-content;
+}
+
+.step1-img, .step2-img {
+    position: relative;
+    top: -120px;
+    left: 80px;
+    
+}
+.step2-img {
+    left: 75px;
+}
+.step1-img {
+    height: 145px;
+    width: 145px;
+}
+.card-img {
+    height: 50%;
+}
+
+.card-txt {
+    width: 100%;
+}
+
+.card-txt-head {
+    color: #212121;
+    font-family: 'Roboto Slab', serif;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+    text-align: center;
+    margin: 0px auto;
+}
+
+.card-txt-content {
+    max-width: 150px;
+    text-align: center;
+    margin: 0px auto;
+    line-height: 1.1;
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 20px;
+}
+
+.content2 {
+    max-width: 200px;
+}
+
+/* *********************** */
+/* IDENTIFICATION OF DIVS */
