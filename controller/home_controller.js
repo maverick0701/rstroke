@@ -11,6 +11,8 @@ module.exports.display=function(req,res)
 
 
 module.exports.create = function(req, res){
+    console.log(req.body,"**********************");
+   
     if (req.body.password != req.body.confirm_password){
         return res.redirect('back');
     }
@@ -19,7 +21,11 @@ module.exports.create = function(req, res){
         if(err){req.flash('error', err); return}
 
         if (!user){
-            User.create(req.body, function(err, user){
+            User.create({
+                name:req.body.name,
+                email:req.body.email,
+                password:req.body.password
+            }, function(err, user){
                 if(err){
                     console.log(error,"at line 26");
                     return;

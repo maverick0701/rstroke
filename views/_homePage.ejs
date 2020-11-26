@@ -109,14 +109,14 @@
             </button>
         </div>
         <div class="modal-body">
-          <form action="">
+          <form action="/signIn">
             <div class="login-contents">
               <div class="username-login">
-                <input type="text" placeholder="Enter UserName"required>
+                <input type="text" name="email" placeholder="Enter UserName"required>
               </div>
 
               <div class="password-login">
-                <input type="password" placeholder="Enter Password" minlength="8" required>
+                <input type="password" name="password"placeholder="Enter Password" minlength="8" required>
               </div>
             </div>
           </form>
@@ -139,29 +139,30 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="">
+          <form action="/signUp" method="POST">
             <div class="login-contents">
               <div class="username-login">
-                <input type="text" placeholder="Enter UserName"required>
+                <input type="text" placeholder="Enter UserName"required name="name">
               </div>
 
               <div class="user-mail">
-                <input type="email" placeholder="Enter Email-ID" required>
+                <input type="email" placeholder="Enter Email-ID" name='email' required>
               </div>
 
               <div class="password-login">
-                <input type="password" placeholder="Enter Password" minlength="8" required>
+                <input type="password" placeholder="Enter Password" minlength="8" name="password" required>
               </div>
 
               <div class="password-login">
-                <input type="password" placeholder="Confirm Password" minlength="8" required>
+                <input type="password" placeholder="Confirm Password" name="confirm_password" minlength="8" required>
               </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" style="width: fit-content;">Sign-Up</button>
             </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" style="width: fit-content;">Sign-Up</button>
-        </div>
+        
       </div>
     </div>
   </div>

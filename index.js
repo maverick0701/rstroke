@@ -4,9 +4,10 @@ const port=8030;
 const expressLayouts = require('express-ejs-layouts');
 const sassMiddleware = require('node-sass-middleware');
 const session = require('express-session');
-const passport = require('passport');
 const MongoStore = require('connect-mongo')(session);
-
+const db = require('./config/mongoose');
+const passport = require('passport');
+const passportLocal = require('./config/passport-local-oauth');
 app.use(express.urlencoded());
 app.use(expressLayouts);
 app.set('layout extractStyles', true);
@@ -16,6 +17,34 @@ app.use('/', require('./routes'));
 app.set('view engine', 'ejs');
 
 app.use(express.static("./assets"));
+
+app.use(session({
+    name: 'codeial',
+    // TODO change the secret before deployment in production mode
+    secret: "blahblahblahblaa",
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+        maxAge: (1000 * 60 * 100)
+    },
+    store: new MongoStore(
+        {
+            mongooseConnection: db,
+            autoRemove: 'disabled'
+        
+        },
+        function(err){
+            console.log(err ||  'connect-mongodb setup ok');
+        }
+    )
+}));
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(passport.setAuthenticatedUser);
+
 
 app.use(sassMiddleware({
     src:'./assets/scss',//from where to pick up css file for compilation
