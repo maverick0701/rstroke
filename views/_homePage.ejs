@@ -181,7 +181,15 @@
       </div>
     </div>
 </div>
+<footer class="footer1">
+  <div class="ray-info">
 
+
+  </div>
+  <div class="maddy-info">
+
+  </div>
+</footer>
 <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
      
@@ -252,3 +260,45 @@
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="SignupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Sign-Up</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span id="cross-btn" aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="login-contents">
+              <div class="username-login">
+                <input type="text" placeholder="Enter UserName">
+              </div>
+
+              <div class="user-mail">
+                <input type="email" placeholder="Enter Email-ID" >
+              </div>
+
+              <div class="password-login">
+                <input type="password" placeholder="Enter Password" minlength="8" >
+              </div>
+
+              <div class="password-login">
+                <input type="password" placeholder="Confirm Password" minlength="8" >
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary " style="width: fit-content;">Sign-Up</button>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>

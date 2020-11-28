@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    background-color: #212121;    
+    background-color: #212121;   
 }
 ::-webkit-scrollbar {
     width: 0px;
@@ -61,12 +61,19 @@ h3 {
 }
 img {
     height: 30vw;
-    width: 45vh;
+    width: 25vw;
     border-radius: 20px;    
     box-shadow: 5px 5px 10px black;
+    /* position: absolute; */
+    /* margin: 0px auto; */
+    
+}
+.image {
+    /* width: 100%; */
     position: absolute;
-    margin-left: 65%;
-    margin-top: -3%;
+    right: 10%;
+    top: 20%;
+    transform: translate(0%,5%);
 }
 
 .herotxt {
@@ -103,14 +110,17 @@ a:hover {
 /* ******************************* */
 #section1 {
     /* width: 100vw; */
-    height: 100vh;
+    height: fit-content;
 }
 .footer1 {
     position: relative;
     bottom: 0;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
     
     /* border: 2px solid red; */
-    height: 25vh;
+    height: 200px;
     background-color: whitesmoke;
     opacity: 0.8;
     /* display: block; */
@@ -120,6 +130,8 @@ a:hover {
 .row {
     position: relative;
     top: 40px;
+    height: fit-content;
+    margin-bottom: 20vh;
 }
 
 .col {
@@ -127,7 +139,7 @@ a:hover {
     /* border: 1px dashed pink; */
     height: 450px;
     width: 100%;
-    margin-bottom: 12.5vh;
+    /* margin-bottom: 12.5vh; */
 }
 
 .stepcard {
@@ -161,12 +173,7 @@ a:hover {
     position: relative;
     top: 30px;
 }
-/* .mask2 {
-    background: transparent;
-    position: relative;
-    top: -1px;
-    z-index: 99;
-} */
+
 .real-img {
     margin: 0px;
     padding: 0;
@@ -227,5 +234,12 @@ a:hover {
     max-width: 200px;
 }
 
+.container-fluid {
+    display: block;
+}
+
+
 /* *********************** */
-/* IDENTIFICATION OF DIVS */
+/* MEDIA QUERIES */
+
+
