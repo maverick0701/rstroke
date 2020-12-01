@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-
-mongoose.connect(`mongodb+srv://maverick:amanis3937@cluster0.s0lia.mongodb.net/rstroke?retryWrites=true&w=majority`);
+require('dotenv').config();
+mongoose.connect(`mongodb+srv://${process.env.dbName}:${process.env.pass}@cluster0.s0lia.mongodb.net/rstroke?retryWrites=true&w=majority`);
 
 const db = mongoose.connection;
 

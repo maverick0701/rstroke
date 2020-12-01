@@ -7,6 +7,7 @@ const sassMiddleware = require('node-sass-middleware');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const db = require('./config/mongoose');
+require('dotenv').config();
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-oauth');
 app.use(express.urlencoded());
@@ -65,5 +66,5 @@ app.listen(port, function(err){
         console.log(`Error in running the server: ${err},*******,dirname is `,);
     }
 
-    console.log(`Server is running on port: ${port}`,__dirname);
+    console.log(`Server is running on port: ${port}`);
 });
