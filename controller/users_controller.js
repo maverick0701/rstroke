@@ -22,11 +22,14 @@ module.exports.print=async function(req,res)
       
         await browser.close();
       
-      res.set({
+      await res.set({
         "Content-Type": "application/pdf",
         "Content-Length":Pdf.length
        });
-       res.sendFile(pdfUrl);
+      await res.sendFile(pdfUrl);
+      
+       
+
        
 
 }
