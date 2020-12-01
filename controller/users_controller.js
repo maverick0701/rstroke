@@ -9,7 +9,7 @@ module.exports.print=async function(req,res)
     
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
-        await page.goto("http://localhost:8030/", {
+        await page.goto("http://localhost:8030/users/profile/"+req.params.id, {
           waitUntil: "networkidle2"
         });
         await page.setViewport({ width: 1680, height: 1050 });
@@ -29,4 +29,15 @@ module.exports.print=async function(req,res)
        res.sendFile(pdfUrl);
        
 
+}
+
+module.exports.profile=function(req,res)
+{
+  User.findById(req.params.id,function(err,user)
+  {
+    res.render('_secondPage.ejs',{
+      user:user
+    });
+  })
+  
 }
