@@ -1,6 +1,11 @@
 const User = require('../models/user');
-
+const puppeteer = require("puppeteer");
+const path = require('path');
+const todays_date = new Date();
 module.exports.home=function(req,res){
+    console.log('*******',__dirname);
+    path1= `${path.join(__dirname,'..' ,'fileStorage')}`;
+    console.log(path1);
     return res.render('_homePage.ejs');
 }
 

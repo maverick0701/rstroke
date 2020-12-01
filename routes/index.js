@@ -2,12 +2,14 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const home_controller=require('../controller/home_controller');
-
+const users_controller=require('../controller/users_controller');
 router.get('/',home_controller.home);
+router.get('/pdf',users_controller.print);
 router.post('/signUp',home_controller.create);
 router.post('/signIn', passport.authenticate(
     'local',
     {failureRedirect: '/'},
 ), home_controller.display);
 router.get('/signOut',home_controller.destroySession);
+
 module.exports = router;
