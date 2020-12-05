@@ -2,7 +2,6 @@ const User = require('../models/user');
 const fs = require('fs');
 const Path = require('path');
 const puppeteer = require("puppeteer");
-const todays_date = new Date();
 
 module.exports.print=async function(req,res)
 {
