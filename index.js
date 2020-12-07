@@ -7,7 +7,8 @@ const sassMiddleware = require('node-sass-middleware');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const db = require('./config/mongoose');
-require('dotenv').config();
+const Path=require('path');
+require('dotenv').config({ path:Path.join(__dirname,'env','one.env')});
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-oauth');
 app.use(express.urlencoded());
@@ -31,7 +32,7 @@ app.use(express.static("./assets"));
 app.use(session({
     name: 'codeial',
     // TODO change the secret before deployment in production mode
-    secret: "blahblahblahblaa",
+    secret: `${process.env.secretKey}`,
     saveUninitialized: false,
     resave: false,
     cookie: {
