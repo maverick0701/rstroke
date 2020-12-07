@@ -83,3 +83,32 @@ input[type=text]:focus, input[type=password]:focus, input[type=email] {
     margin-top: -10px;
     text-align: center;
 }
+.inner-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.ray-info {
+    width: 50%;
+    border-left: 1px solid black;
+    text-align: center;
+}
+h6 {
+    font-size: 20px;
+    font-weight: 700;
+}
+.maddy-info {
+    width: 50%;
+    text-align: center;
+}
+.maddy-info, .ray-info {
+    padding: 15px;
+}
+.ctus {
+    font-size: 30px;
+    color: #212121;
+    margin: 10px 5px;
+}
+.pdf1 {
+    font-size: 27.8px;
+}

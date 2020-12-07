@@ -9,7 +9,7 @@ module.exports.print=async function(req,res)
     
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
-        await page.goto("http://localhost:8030/users/profile/"+req.params.id, {
+        await page.goto("http://localhost:8030/users/profile/", {
           waitUntil: "networkidle2"
         });
         await page.setViewport({ width: 1680, height: 1050 });
