@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const home_controller=require('../controller/home_controller');
 router.get('/',home_controller.home);
+router.get('/second',home_controller.second)
 router.use('/users', require('./users'));
 router.post('/signUp',home_controller.create);
 router.post('/signIn', passport.authenticate(

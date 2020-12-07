@@ -62,3 +62,8 @@ module.exports.destroySession = function(req, res){
 
     return res.redirect('/');
 } 
+
+module.exports.second=function(req,res)
+{
+    return res.render('_secondPage.ejs')
+}
