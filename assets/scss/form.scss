@@ -3,3 +3,29 @@ body {
     background-color:$thirdB;
     color:$primFont;   
 }
+@mixin position($pos,$left,$top)
+{
+    position: absolute;
+    left:$left;
+    top:$top;
+}
+#box{
+    background-color: $primFont;
+    height:$h1;
+    width:$w1;
+    border-radius:$radius;
+    @include position(absolute,25vw,15%);
+}
+#timeLine{
+    width: 40vw;
+    @include position(absolute,30vw,10%);
+    border-top: 2px dashed white;
+    .circle
+    {
+        height: 20px;
+        width: 20px;
+        border-radius: $radius;
+        background-color: $primFont;
+        @include position(absolute,10px,-12px)
+    }
+}

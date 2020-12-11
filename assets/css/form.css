@@ -1,3 +1,27 @@
 body {
   background-color: #212121;
   color: white; }
+
+#box {
+  background-color: white;
+  height: 60vh;
+  width: 50vw;
+  border-radius: 30px;
+  position: absolute;
+  left: 25vw;
+  top: 15%; }
+
+#timeLine {
+  width: 40vw;
+  position: absolute;
+  left: 30vw;
+  top: 10%;
+  border-top: 2px dashed white; }
+  #timeLine .circle {
+    height: 20px;
+    width: 20px;
+    border-radius: 30px;
+    background-color: white;
+    position: absolute;
+    left: 10px;
+    top: -12px; }
