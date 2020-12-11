@@ -11,9 +11,9 @@
     <form action="">
 <%keys.forEach((key,index)=>{%>
     <%if(index==0){%>
-        <div  class='con'>
+        <div  class='con' id="divs">
     <%}else{%>
-        <div class="setDisplayNone">
+        <div class="setDisplayNone" id="divs">
     <%}%>
     <div class="header">
         <h1><%=key%></h1>
@@ -24,7 +24,12 @@
     </div>
     <%})%>
     </form>
+    <button type="submit" id="next">Next</button>
+    <button type="submit" id="prev" disabled>Previous</button>
 </div>
 
 
 <script src="/js/form.js"></script>
+<script>
+     new formCarousel(`<%=numTrue%>`);
+</script>
