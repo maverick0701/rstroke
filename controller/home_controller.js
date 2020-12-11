@@ -76,22 +76,34 @@ module.exports.second=function(req,res)
     return res.render('_secondPage.ejs')
 }
 
-
-module.exports.third= async function(req,res)
-{
-    let form=await Form.findOne({id:1});
-    const keys = Object.keys(form._doc);
-    // obj=()=>{
-    
-    // keys.forEach((key) => {
-    //     console.log(key, form[key]);
-    // })};
+keyOperation=(keys,form)=>{
     let id1=keys.indexOf("_id");
     keys.splice(id1,1);
     let id2=keys.indexOf("id");
     keys.splice(id2,1);
+    let id3= keys.indexOf("numTrue");
+    keys.splice(id3,1);
+    keys.forEach((key,index)=>
+    {
+        if(form[key]==false)
+        {
+            keys.splice(index,1);
+        }
+    })
+   return keys;
+}
+
+module.exports.third= async function(req,res)
+{
+    let form=await Form.findOne({id:1});
+    let keys = Object.keys(form._doc);
+    let allKeys = Object.keys(form._doc);
+    let numTrue=form.numTrue;
+    keys=await keyOperation(keys,form);
     return res.render('_thirdPage.ejs',{
         form:form,
-        keys:keys
+        keys:keys,
+        allKeys:allKeys,
+        numTrue:numTrue
     })
 }
