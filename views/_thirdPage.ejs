@@ -8,8 +8,9 @@
 </div>
 
 <div id='box'>
+    <form action="">
 <%keys.forEach((key,index)=>{%>
-    <%if(index==0){%>
+    <%if(index==1){%>
         <div  class='con'>
     <%}else{%>
         <div class="setDisplayNone">
@@ -17,6 +18,10 @@
     <div class="header">
         <h1><%=key%></h1>
     </div>
+    <div class="formDetail">
+        <textarea name=`<%=key%>` class='txtar'></textarea>
+    </div>
     </div>
     <%})%>
+    </form>
 </div>
