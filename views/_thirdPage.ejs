@@ -3,8 +3,16 @@
 <!-- <%keys.forEach((key)=>{%>
 <%=key%>:: <%=form[key]%><br>
 <%})%> -->
-<div id='timeLine'>
+<!-- <%=form.numTrue%> -->
+<!-- <div id='timeLine'>
+    <% for(var i=0;i!=form.numTrue ;i++){%>
     <div class="circle"></div>
+    <%}%>
+</div> -->
+<div id='timeLine'>
+<% for (var i =1; i <=form.numTrue;  i++ ) { %>
+        <div class="circle" id=`circle-<%=i%>`></div>
+    <% } %>
 </div>
 
 <div id='box'>

@@ -17,15 +17,16 @@ body {
     @include position(absolute,25vw,15%);
 }
 #timeLine{
-    width: 40vw;
-    @include position(absolute,30vw,10%);
-    border-top: 2px dashed white;
+    
+    @include position(absolute,45vw,10%);
+    display: flex;
     .circle
     {
         height: 20px;
         width: 20px;
         border-radius: $radius;
         background-color: $primFont;
-        @include position(absolute,10px,-12px)
+        margin-left: 20px;
     }
+   
 }
