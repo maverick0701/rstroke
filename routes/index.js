@@ -10,7 +10,7 @@ router.post('/signUp',home_controller.create);
 router.post('/signIn', passport.authenticate(
     'local',
     {failureRedirect: '/'},
-), home_controller.display);
+), home_controller.display); 
 router.get('/signOut',home_controller.destroySession);
 
 module.exports = router;

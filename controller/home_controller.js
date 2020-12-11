@@ -17,19 +17,7 @@ module.exports.home=function(req,res){
 
 module.exports.display=function(req,res)
 {
-    
-    
-    User.findOne({email:req.body.email},function(err,user){
-        if(!user)
-        {
-            return;
-        }
-        else
-        {
-            return res.redirect('/');
-        }
-    })
-    
+    return res.redirect('/'); 
 }
 
 

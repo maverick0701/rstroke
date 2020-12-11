@@ -27,7 +27,7 @@ passport.use(new LocalStratergy({
             return done(null,user);
         });
     }
-));
+)); 
 
 //serial user function
 //serialize the user to decide which key is yo be 
