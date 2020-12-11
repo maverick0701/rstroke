@@ -8,5 +8,15 @@
 </div>
 
 <div id='box'>
-    
+<%keys.forEach((key,index)=>{%>
+    <%if(index==0){%>
+        <div  class='con'>
+    <%}else{%>
+        <div class="setDisplayNone">
+    <%}%>
+    <div class="header">
+        <h1><%=key%></h1>
+    </div>
+    </div>
+    <%})%>
 </div>

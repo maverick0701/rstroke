@@ -14,9 +14,18 @@ body {
     height:$h1;
     width:$w1;
     border-radius:$radius;
-    display: flex;
-    color: black;
+    color: black;  
     @include position(absolute,25vw,15%);
+    .con{
+      
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-transform: capitalize;
+        border: 2px solid black;
+    }
+
 }
 #timeLine{
     
@@ -31,4 +40,8 @@ body {
         margin-left: 20px;
     }
    
+}
+
+.setDisplayNone{
+    display: none;
 }
