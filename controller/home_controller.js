@@ -86,6 +86,10 @@ module.exports.third= async function(req,res)
     // keys.forEach((key) => {
     //     console.log(key, form[key]);
     // })};
+    let id1=keys.indexOf("_id");
+    keys.splice(id1,1);
+    let id2=keys.indexOf("id");
+    keys.splice(id2,1);
     return res.render('_thirdPage.ejs',{
         form:form,
         keys:keys
