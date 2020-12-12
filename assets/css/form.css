@@ -40,3 +40,22 @@ body {
 
 .setDisplayNone {
   display: none; }
+
+#prev {
+  position: absolute;
+  top: 90%;
+  height: 50px;
+  border-bottom-left-radius: 30px; }
+
+#sub {
+  position: absolute;
+  top: 90%;
+  left: 44%;
+  height: 50px; }
+
+#next {
+  position: absolute;
+  top: 90%;
+  left: 93.2%;
+  height: 50px;
+  border-bottom-right-radius: 30px; }
