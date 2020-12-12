@@ -16,8 +16,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    text-transform: capitalize;
-    border: 2px solid black; }
+    text-transform: capitalize; }
     #box .con .header h1 {
       text-align: center; }
     #box .con .txtar {
@@ -36,8 +35,8 @@ body {
     height: 20px;
     width: 20px;
     border-radius: 30px;
-    background-color: white;
-    margin-left: 20px; }
+    margin-left: 20px;
+    background-color: white; }
 
 .setDisplayNone {
   display: none; }

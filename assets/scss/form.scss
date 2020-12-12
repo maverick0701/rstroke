@@ -23,7 +23,6 @@ body {
         display: flex;
         flex-direction: column;
         text-transform: capitalize;
-        border: 2px solid black;
         .header h1{
             text-align: center;
         }
@@ -45,8 +44,8 @@ body {
         height: 20px;
         width: 20px;
         border-radius: $radius;
-        background-color: $primFont;
         margin-left: 20px;
+        background-color: $primFont;
     }
    
 }
@@ -54,3 +53,4 @@ body {
 .setDisplayNone{
     display: none;
 }
+

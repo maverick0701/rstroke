@@ -8,7 +8,7 @@
 </div>
 
 <div id='box'>
-    <form action="">
+    <form action="" method="POST">
 <%keys.forEach((key,index)=>{%>
     <%if(index==0){%>
         <div  class='con' id="divs">
@@ -21,11 +21,14 @@
     <div class="formDetail">
         <textarea name=`<%=key%>` class='txtar'></textarea>
     </div>
-    </div>
+    </div> 
     <%})%>
-    </form>
     <button type="submit" id="next">Next</button>
+    <button type="submit" id="sub" disabled>Submit</button> 
     <button type="submit" id="prev" disabled>Previous</button>
+    </form>
+    
+    
 </div>
 
 
