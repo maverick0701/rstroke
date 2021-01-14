@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const Form=require('../models/pdfForm');
 const puppeteer = require("puppeteer");
+const fs = require('fs');
 const path = require('path');
 const { format } = require('path');
 const todays_date = new Date();
@@ -97,7 +98,21 @@ module.exports.third= async function(req,res)
     })
 }
 
-module.exports.upload=function(req,res)
+module.exports.upload=async function(req,res)
 {
-    
+   
+    let user=await User.findById(req.user.id);
+    User.uploadedAvatar(req, res, function(err){
+        console.log(req.file);
+    if(req.file)
+    {
+        if(user.avatar)
+        {
+            fs.unlinkSync(path.join(__dirname, '..', user.avatar));
+        }
+        user.avatar = User.avatarPath + '/' + req.file.filename;
+    }
+    user.save();
+});
+    return res.redirect('back');
 }

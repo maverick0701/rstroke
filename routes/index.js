@@ -7,7 +7,7 @@ router.get('/third',home_controller.third);
 router.get('/second',home_controller.second)
 router.use('/users', require('./users'));
 router.post('/signUp',home_controller.create);
-router.post('/image/upload',home_controller.create);
+router.post('/image/upload',home_controller.upload);
 router.post('/signIn', passport.authenticate(
     'local',
     {failureRedirect: '/'},
