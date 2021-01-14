@@ -88,10 +88,16 @@ module.exports.third= async function(req,res)
     let allKeys = Object.keys(form._doc);
     let numTrue=form.numTrue;
     keys=await keyOperation(keys,form);
+    console.log(form._doc);
     return res.render('_thirdPage.ejs',{
         form:form,
         keys:keys,
         allKeys:allKeys,
         numTrue:numTrue
     })
+}
+
+module.exports.upload=function(req,res)
+{
+    
 }
