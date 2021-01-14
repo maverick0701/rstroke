@@ -90,6 +90,7 @@ module.exports.third= async function(req,res)
     let numTrue=form.numTrue;
     keys=await keyOperation(keys,form);
     console.log(form._doc);
+    console.log(keys);
     return res.render('_thirdPage.ejs',{
         form:form,
         keys:keys,
