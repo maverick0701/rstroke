@@ -11,6 +11,8 @@ const Path=require('path');
 require('dotenv').config({ path:Path.join(__dirname,'env','one.env')});
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-oauth');
+const passportGoogle=require('./config/passport-google-srat');
+var multer  = require('multer')
 app.use(express.urlencoded());
 app.use(cookieParser());
 
