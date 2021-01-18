@@ -84,7 +84,8 @@ keyOperation=(keys,form)=>{
 
 module.exports.third= async function(req,res)
 {
-    let form=await Form.findOne({id:1});
+    
+    let form=await Form.findOne({id:req.params.id});
     let keys = Object.keys(form._doc);
     let allKeys = Object.keys(form._doc);
     let numTrue=form.numTrue;

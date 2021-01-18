@@ -5,7 +5,7 @@ const Path=require('path');
 require('dotenv').config({ path:Path.join(__dirname,'..','env','one.env')});
 const home_controller=require('../controller/home_controller');
 router.get('/',home_controller.home);
-router.get('/third',home_controller.third);
+router.get('/third/:id',home_controller.third);
 router.get('/second',home_controller.second)
 router.use('/users', require('./users'));
 router.post('/signUp',home_controller.create);

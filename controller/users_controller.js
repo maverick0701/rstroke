@@ -28,12 +28,10 @@ module.exports.print=async function(req,res)
         "Content-Length":Pdf.length
        });
       await res.sendFile(pdfUrl);
-      
-       
-
-       
-
 }
+
+
+
 
 module.exports.profile=function(req,res)
 {
