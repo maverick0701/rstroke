@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const edu=require('../models/edu');
 const exp=require('../models/exp');
+const abMe=require('../models/abme');
 const Form=require('../models/pdfForm');
 const fs = require('fs');
 const Path = require('path');
@@ -38,6 +39,7 @@ module.exports.update=async function(req,res)
   // console.log(req.body,'of update');
   var dbList=new Array();
   dbList=Object.keys(req.body);
+  console.log(dbList);
   dbList.forEach(async (key)=>
   {
     console.log(`${key}`);
@@ -57,10 +59,22 @@ module.exports.update=async function(req,res)
     {
       var exx=await exp.create({
         id:req.user,
-        Past_Experience:req.body.Past_Experience
+        experience:req.body.Past_Experience
       });
       let user=await User.findById(req.user.id);
       user.experience.push(exx.id);
+
+      console.log(user.id);
+      user.save();
+    }
+    else if(key=='aboutme')
+    {
+      var abbMe=await abMe.create({
+        id:req.user,
+        abMe:req.body.aboutme
+      });
+      let user=await User.findById(req.user.id);
+      user.experience.push(abbMe.id);
 
       console.log(user.id);
       user.save();
