@@ -10,13 +10,18 @@
 <div id='box'>
     <form action="/users/update" method="POST">
 <%keys.forEach((key,index)=>{%>
+    <%if(key=='Past_Experience'){var newKey=key.split('_');var oldKey=newKey[0]+' '+newKey[1]}%>
     <%if(index==0){%>
         <div  class='con' id="divs">
     <%}else{%>
         <div class="setDisplayNone" id="divs">
     <%}%>
     <div class="header">
+        <%if(key=='Past_Experience'){%>
+            <h1><%=oldKey%></h1>
+            <%}else{%>
         <h1><%=key%></h1>
+        <%}%>
     </div>
     <div class="formDetail">
         <%if(key=='profile'){%>
