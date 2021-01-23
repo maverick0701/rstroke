@@ -1,3 +1,4 @@
+node_modules/
 one.env
 fileStorage/
-node_modules/
+uploads/

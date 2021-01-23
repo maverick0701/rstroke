@@ -8,7 +8,7 @@
 </div>
 
 <div id='box'>
-    <form action="" method="POST">
+    <form action="/users/update" method="POST">
 <%keys.forEach((key,index)=>{%>
     <%if(index==0){%>
         <div  class='con' id="divs">
@@ -19,16 +19,23 @@
         <h1><%=key%></h1>
     </div>
     <div class="formDetail">
-        <textarea name=`<%=key%>` class='txtar'></textarea>
+        <%if(key=='profile'){%>
+            <form action="/image/upload" method="post" enctype="multipart/form-data">
+                <label>Upload Profile Pic</label><br>
+                <input type="file" name="avatar" />
+                <button type="submit">Submit</button>
+            </form>  
+            <%}%>
+        <textarea name=<%=key%> class='txtar'></textarea>
     </div>
     </div> 
     <%})%>
-    <button type="submit" id="next">Next</button>
+    <button type="submit" id="next" >Next</button>
     <button type="submit" id="sub" disabled>Submit</button> 
     <button type="submit" id="prev" disabled>Previous</button>
     </form>
     
-    
+   
 </div>
 
 

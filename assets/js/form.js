@@ -11,6 +11,11 @@ class formCarousel
     }
     rotate=()=>
     {
+        if(this.currentIndex==this.len-1)
+            {
+                $('#sub').removeAttr('disabled');
+                $('#next').attr('disabled','true');
+            }
         $('#next').click((event)=>{
             event.preventDefault();
             this.cont.eq(this.currentIndex).removeClass('con');
