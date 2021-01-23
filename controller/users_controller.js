@@ -41,9 +41,10 @@ module.exports.update=async function(req,res)
   var dbList=new Array();
   dbList=Object.keys(req.body);
   console.log(dbList);
-  await User.spalshArray(function(){
-    console.log('experience is deleted');
-  })
+  // await User.spalshArray(function(){
+  //   console.log('experience is deleted');
+  // })
+  await Project.spalshArray(function(){console.log('hello')});
   // dbList.forEach(async (key)=>
   // {
   //   console.log(`${key}`);

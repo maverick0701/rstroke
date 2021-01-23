@@ -57,9 +57,49 @@ let storage = multer.diskStorage({
   userSchema.statics.avatarPath = AVATAR_PATH;
   userSchema.statics.spalshArray=function(cb)
   {
-    User.find({},function(err,user)
+    console.log('hello');
+    User.find({},function(err,users)
     {
-      console.log(user.id);
+      console.log(users.forEach((user)=>
+      {
+        if(user.education)
+        {
+          console.log(user.education.length);
+          var i=0;
+          while(i<user.education.length)
+          {
+            user.education.pop();
+            
+          }
+          
+        }
+        if(user.experience)
+        {
+          
+          var i=0;
+          while(i<user.experience.length)
+          {
+            
+            user.experience.pop();
+            
+          }
+         
+        }
+        if(user.project)
+        {
+          
+          var i=0;
+          while(i<user.project.length)
+          {
+            user.project.pop();
+            
+          }
+          
+        }
+        user.save();
+        console.log(user.education);
+        
+      }));
     })
   }
 
