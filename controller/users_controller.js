@@ -37,20 +37,20 @@ module.exports.update=async function(req,res)
   // console.log(req.body,'of update');
   var dbList=new Array();
   dbList=Object.keys(req.body);
-  dbList.forEach((key)=>
+  dbList.forEach(async (key)=>
   {
     console.log(`${key}`);
     if(key=='education')
     {
-      edu.create({
+      var edd=await edu.create({
         id:req.user,
         education:req.body.education
-      },function(err, edu){
-        if(err){
-            console.log(err,"at line 48");
-            return;
-        }});
+      });
+      let user=await User.findById(req.user.id);
+      user.education.push(edd.id);
 
+      console.log(user.id);
+      user.save();
     }
   })
   res.redirect('back');
