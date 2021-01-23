@@ -68,19 +68,19 @@ module.exports.update=async function(req,res)
     //   console.log(user.id);
     //   user.save();
     // }
-    // else if(key=='project')
-    // {
-    //   var proj=await Project.create({
-    //     id:req.user,
-    //     project:req.body.project
-    //   });
-    //   let user=await User.findById(req.user.id);
-    //   user.project.push(proj.id);
+    if(key=='project')
+    {
+      var proj=await Project.create({
+        id:req.user,
+        project:req.body.project
+      });
+      let user=await User.findById(req.user.id);
+      user.project.push(proj.id);
 
-    //   console.log(user.id);
-    //   user.save();
-    // }
-    if(key=='aboutme')
+      console.log(user.id);
+      user.save();
+    }
+    else if(key=='aboutme')
     {
       var abbMe=await abbbMe.create({
         id:req.user,
