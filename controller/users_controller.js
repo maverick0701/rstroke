@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const edu=require('../models/edu');
 const Form=require('../models/pdfForm');
 const fs = require('fs');
 const Path = require('path');
@@ -33,7 +34,25 @@ module.exports.print=async function(req,res)
 
 module.exports.update=async function(req,res)
 {
-  console.log(req.body,'of update');
+  // console.log(req.body,'of update');
+  var dbList=new Array();
+  dbList=Object.keys(req.body);
+  dbList.forEach((key)=>
+  {
+    console.log(`${key}`);
+    if(key=='education')
+    {
+      edu.create({
+        id:req.user,
+        education:req.body.education
+      },function(err, edu){
+        if(err){
+            console.log(err,"at line 48");
+            return;
+        }});
+
+    }
+  })
   res.redirect('back');
 }
 
