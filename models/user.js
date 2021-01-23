@@ -18,27 +18,7 @@ const userSchema = new mongoose.Schema({
     },
     avatar: {
         type: String
-    },
-    education:[{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'eduForm'
-    }],
-    abMe:{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'meForm'
-    },
-    experience:[{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'expForm'
-    }],
-    profile:[{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'proForm'
-    }],
-    project:[{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'projForm'
-    }]
+    }
 }, {
     timestamps: true
 });

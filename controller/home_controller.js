@@ -72,13 +72,19 @@ keyOperation=(keys,form)=>{
     keys.splice(id2,1);
     let id3= keys.indexOf("numTrue");
     keys.splice(id3,1);
+    // console.log(keys);
+    var newKey=new Array();
     keys.forEach((key,index)=>
     {
-        if(form[key]==false)
+        
+        if(form[key]!=false)
         {
-            keys.splice(index,1);
+            newKey.push(key);
         }
     })
+    
+    // console.log(keys,'this is key 3');
+    keys=newKey;
    return keys;
 }
 
@@ -90,8 +96,8 @@ module.exports.third= async function(req,res)
     let allKeys = Object.keys(form._doc);
     let numTrue=form.numTrue;
     keys=await keyOperation(keys,form);
-    console.log(form._doc);
-    console.log(keys);
+    // console.log(form._doc);
+    // console.log(keys,'this is keys');
     return res.render('_thirdPage.ejs',{
         form:form,
         keys:keys,

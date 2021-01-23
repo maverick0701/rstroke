@@ -18,14 +18,6 @@ const formSchema = new mongoose.Schema({
         type:Boolean,
         required:true
     },
-    project:{
-        type:Boolean,
-        required:true
-    },
-    Past_Experience:{
-        type:Boolean,
-        required:true
-    },
     numTrue:{
         type:Number,
         required:true

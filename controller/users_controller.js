@@ -31,7 +31,11 @@ module.exports.print=async function(req,res)
 }
 
 
-
+module.exports.update=async function(req,res)
+{
+  console.log(req.body,'of update');
+  res.redirect('back');
+}
 
 module.exports.profile=function(req,res)
 {
