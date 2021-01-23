@@ -44,31 +44,31 @@ module.exports.update=async function(req,res)
   dbList.forEach(async (key)=>
   {
     console.log(`${key}`);
-    // if(key=='education')
-    // {
-    //   var edd=await edu.create({
-    //     id:req.user,
-    //     education:req.body.education
-    //   });
-    //   let user=await User.findById(req.user.id);
-    //   user.education.push(edd.id);
+    if(key=='education')
+    {
+      var edd=await edu.create({
+        id:req.user,
+        education:req.body.education
+      });
+      let user=await User.findById(req.user.id);
+      user.education.push(edd.id);
 
-    //   console.log(user.id);
-    //   user.save();
-    // }
-    // else if(key=='experience')
-    // {
-    //   var exx=await exp.create({
-    //     id:req.user,
-    //     experience:req.body.Past_Experience
-    //   });
-    //   let user=await User.findById(req.user.id);
-    //   user.experience.push(exx.id);
+      console.log(user.id);
+      user.save();
+    }
+    else if(key=='Past_Experience')
+    {
+      var exx=await exp.create({
+        id:req.user,
+        experience:req.body.Past_Experience
+      });
+      let user=await User.findById(req.user.id);
+      user.experience.push(exx.id);
 
-    //   console.log(user.id);
-    //   user.save();
-    // }
-    if(key=='project')
+      console.log(user.id);
+      user.save();
+    }
+    else if(key=='project')
     {
       var proj=await Project.create({
         id:req.user,
