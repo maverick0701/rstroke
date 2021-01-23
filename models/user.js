@@ -55,7 +55,13 @@ let storage = multer.diskStorage({
 //for statics
   userSchema.statics.uploadedAvatar = multer({storage:  storage}).single('avatar');
   userSchema.statics.avatarPath = AVATAR_PATH;
-  
+  userSchema.statics.spalshArray=function(cb)
+  {
+    User.find({},function(err,user)
+    {
+      console.log(user.id);
+    })
+  }
 
 const User = mongoose.model('User', userSchema);
 
