@@ -44,59 +44,59 @@ module.exports.update=async function(req,res)
   // await User.spalshArray(function(){
   //   console.log('experience is deleted');
   // })
-  await Project.spalshArray(function(){console.log('hello')});
-  // dbList.forEach(async (key)=>
-  // {
-  //   console.log(`${key}`);
-  //   if(key=='education')
-  //   {
-  //     var edd=await edu.create({
-  //       id:req.user,
-  //       education:req.body.education
-  //     });
-  //     let user=await User.findById(req.user.id);
-  //     user.education.push(edd.id);
+  // await Project.spalshArray(function(){console.log('hello')});
+  dbList.forEach(async (key)=>
+  {
+    console.log(`${key}`);
+    if(key=='education')
+    {
+      var edd=await edu.create({
+        id:req.user,
+        education:req.body.education
+      });
+      let user=await User.findById(req.user.id);
+      user.education.push(edd.id);
 
-  //     console.log(user.id);
-  //     user.save();
-  //   }
-  //   else if(key=='Past_Experience')
-  //   {
-  //     var exx=await exp.create({
-  //       id:req.user,
-  //       experience:req.body.Past_Experience
-  //     });
-  //     let user=await User.findById(req.user.id);
-  //     user.experience.push(exx.id);
+      console.log(user.id);
+      user.save();
+    }
+    else if(key=='Past_Experience')
+    {
+      var exx=await exp.create({
+        id:req.user,
+        experience:req.body.Past_Experience
+      });
+      let user=await User.findById(req.user.id);
+      user.experience.push(exx.id);
 
-  //     console.log(user.id);
-  //     user.save();
-  //   }
-  //   else if(key=='project')
-  //   {
-  //     var proj=await Project.create({
-  //       id:req.user,
-  //       project:req.body.project
-  //     });
-  //     let user=await User.findById(req.user.id);
-  //     user.project.push(proj.id);
+      console.log(user.id);
+      user.save();
+    }
+    else if(key=='project')
+    {
+      var proj=await Project.create({
+        id:req.user,
+        project:req.body.project
+      });
+      let user=await User.findById(req.user.id);
+      user.project.push(proj.id);
 
-  //     console.log(user.id);
-  //     user.save();
-  //   }
-  //   else if(key=='aboutme')
-  //   {
-  //     var abbMe=await abbbMe.create({
-  //       id:req.user,
-  //       aboutMe:req.body.aboutme
-  //     });
-  //     let user=await User.findById(req.user.id);
-  //     user.abMe=abbMe.id;
+      console.log(user.id);
+      user.save();
+    }
+    else if(key=='aboutme')
+    {
+      var abbMe=await abbbMe.create({
+        id:req.user,
+        aboutMe:req.body.aboutme
+      });
+      let user=await User.findById(req.user.id);
+      user.abMe=abbMe.id;
 
-  //     console.log(user.id);
-  //     user.save();
-  //   }
-  // })
+      console.log(user.id);
+      user.save();
+    }
+  })
   res.redirect('back');
 }
 
