@@ -5,9 +5,32 @@ const formSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'
     },
-    education: {
+    Scool: {
         type: String,
         required: true
+    },
+    LocationOfSchool:{
+        type:String,
+        required:true
+    },
+    yearOfStart:
+    {
+        type:Date,
+        required:true
+    },
+    endYear:
+    {
+        type:Date,
+        required:true
+    },
+    fieldOfStudy:
+    {
+        type:String,
+        required:true
+    },
+    AddLink:
+    {
+        type:String
     }
 }, {
     timestamps: true
