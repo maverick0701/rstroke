@@ -47,12 +47,18 @@ module.exports.update=async function(req,res)
   // await Project.spalshArray(function(){console.log('hello')});
   dbList.forEach(async (key)=>
   {
-    console.log(`${key}`);
-    if(key=='education')
+    // console.log(`${key}`);
+    if(key=='school')
     {
+      console.log('inside edu')
+      console.log(req.body.school);
       var edd=await edu.create({
         id:req.user,
-        education:req.body.education
+        School:req.body.school,
+        LocationOfSchool:req.body.LOCschool,
+        yearOfStart:req.body.Sdate,
+        endYear:req.body.Edate,
+        fieldOfStudy:req.body.foe
       });
       let user=await User.findById(req.user.id);
       user.education.push(edd.id);
