@@ -31,7 +31,19 @@
                 <button type="submit">Submit</button>
             </form>  
             <%}%>
+            <%if(key!='education'){%>
         <textarea name=<%=key%> class='txtar'></textarea>
+        <%}else{%>
+            <label for="school">School</label>
+            <input type="text" name="school" id=""><br>
+            <label for="Sdate">Date</label><br>
+            <input type="date" name="Sdate"><br>
+            <label for="Edate">End Date</label><br>
+            <input type="date" name="Edate"><br>
+            <label for="foe">Field Of Study</label><br>
+            <input type="text" name="foe">
+
+            <%}%>
     </div>
     </div> 
     <%})%>
