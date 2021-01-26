@@ -40,7 +40,8 @@ module.exports.update=async function(req,res)
   // console.log(req.body,'of update');
   var dbList=new Array();
   dbList=Object.keys(req.body);
-  console.log(dbList);
+  // console.log(dbList);
+  // console.log(req.body.school)
   // await User.spalshArray(function(){
   //   console.log('experience is deleted');
   // })
@@ -51,58 +52,61 @@ module.exports.update=async function(req,res)
     if(key=='school')
     {
       console.log('inside edu')
-      console.log(req.body.school);
+      // console.log(req.user);
+      for(let i=0;i<req.body.school.length;i++)
+      {
       var edd=await edu.create({
-        id:req.user,
-        School:req.body.school,
-        LocationOfSchool:req.body.LOCschool,
-        yearOfStart:req.body.Sdate,
-        endYear:req.body.Edate,
-        fieldOfStudy:req.body.foe
+        id:req.user._id,
+        School:req.body.school[i],
+        LocationOfSchool:req.body.LOCschool[i],
+        yearOfStart:req.body.Sdate[i],
+        endYear:req.body.Edate[i],
+        fieldOfStudy:req.body.foe[i]
       });
       let user=await User.findById(req.user.id);
       user.education.push(edd.id);
-
-      console.log(user.id);
       user.save();
     }
-    else if(key=='Past_Experience')
-    {
-      var exx=await exp.create({
-        id:req.user,
-        experience:req.body.Past_Experience
-      });
-      let user=await User.findById(req.user.id);
-      user.experience.push(exx.id);
-
-      console.log(user.id);
-      user.save();
+      // console.log(user.id);
+      
     }
-    else if(key=='project')
-    {
-      var proj=await Project.create({
-        id:req.user,
-        project:req.body.project
-      });
-      let user=await User.findById(req.user.id);
-      user.project.push(proj.id);
+  //   else if(key=='Past_Experience')
+  //   {
+  //     var exx=await exp.create({
+  //       id:req.user,
+  //       experience:req.body.Past_Experience
+  //     });
+  //     let user=await User.findById(req.user.id);
+  //     user.experience.push(exx.id);
 
-      console.log(user.id);
-      user.save();
-    }
-    else if(key=='aboutme')
-    {
-      var abbMe=await abbbMe.create({
-        id:req.user,
-        aboutMe:req.body.aboutme
-      });
-      let user=await User.findById(req.user.id);
-      user.abMe=abbMe.id;
+  //     console.log(user.id);
+  //     user.save();
+  //   }
+  //   else if(key=='project')
+  //   {
+  //     var proj=await Project.create({
+  //       id:req.user,
+  //       project:req.body.project
+  //     });
+  //     let user=await User.findById(req.user.id);
+  //     user.project.push(proj.id);
 
-      console.log(user.id);
-      user.save();
-    }
-  })
+  //     console.log(user.id);
+  //     user.save();
+  //   }
+  //   else if(key=='aboutme')
+  //   {
+  //     var abbMe=await abbbMe.create({
+  //       id:req.user,
+  //       aboutMe:req.body.aboutme
+  //     });
+  //     let user=await User.findById(req.user.id);
+  //     user.abMe=abbMe.id;
+
+  //     console.log(user.id);
+  //     user.save();
+  //   }
+   })
   res.redirect('back');
 }
 
