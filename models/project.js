@@ -12,10 +12,10 @@ const formSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
-formSchema.statics.spalshArray=async function(cb)
+formSchema.statics.spalshArray=async function(user)
   {
     var array=new Array();
-    array=await projForm.find({});
+    array=await projForm.find({id:user});
     var array2=new Array;
     array.forEach((obj1)=>
     {

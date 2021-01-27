@@ -12,10 +12,10 @@ const formSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
-formSchema.statics.clearEdu=async function(cb)
+formSchema.statics.clearExp=async function(user)
 {
     var exp=new Array();
-    exp=await expForm.find({});
+    exp=await expForm.find({id:user});
     var arr=new Array();
     exp.forEach((obj)=>{
         arr.push(obj.id);

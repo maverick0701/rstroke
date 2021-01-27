@@ -55,52 +55,26 @@ let storage = multer.diskStorage({
 //for statics
   userSchema.statics.uploadedAvatar = multer({storage:  storage}).single('avatar');
   userSchema.statics.avatarPath = AVATAR_PATH;
-  userSchema.statics.spalshArray=function(cb)
+  userSchema.statics.splashUser=(user)=>
   {
-    console.log('hello');
-    User.find({},function(err,users)
+    var i=0;
+   
+    while(i<user[0].education.length)
     {
-      users.forEach((user)=>
-      {
-        if(user.education)
-        {
-          console.log(user.education.length);
-          var i=0;
-          while(i<user.education.length)
-          {
-            user.education.pop();
+        user[0].education.pop();
             
-          }
-          
-        }
-        if(user.experience)
-        {
-          
-          var i=0;
-          while(i<user.experience.length)
-          {
-            
-            user.experience.pop();
-            
-          }
-         
-        }
-        if(user.project)
-        {
-          
-          var i=0;
-          while(i<user.project.length)
-          {
-            user.project.pop();
-            
-          }
-          
-        }
-        user.save();
-        console.log(user.education);
-        
-      });
-    })
+    }
+    var i=0;
+    while(i<user[0].experience.length)
+    {
+      user[0].experience.pop();
+    }
+    var i=0;
+    while(i<user[0].project.length)
+    {
+      user[0].project.pop();
+    }
+    user[0].save();
   }
 
 const User = mongoose.model('User', userSchema);

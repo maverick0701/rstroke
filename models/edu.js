@@ -35,10 +35,10 @@ const formSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
-formSchema.statics.clearEdu=async function(cb)
+formSchema.statics.clearEdu=async function(user)
 {
     var edu=new Array();
-    edu=await eduForm.find({});
+    edu=await eduForm.find({id:user});
     var arr=new Array();
     edu.forEach((obj)=>{
         arr.push(obj.id);
