@@ -157,42 +157,69 @@ module.exports.print=async function(req,res)
 //}
 updateData=async function(dbList,req)
 {
-  await abbbMe.clearAbme(req.user._id);
-  if(!req.body.aboutme)
+  let Promise1,Promise2;
+  if(req.body.aboutme)
   {
-    return;
-  }
-  let Promise1=new Promise((resolve,reject)=>
-  {
-    abbbMe.create({
-      id:req.user.id,
-      aboutMe:req.body.aboutme
-    },(err,abbMe)=>{
-      if(err)
-      {
-        reject();
-      }
-      User.findById(req.user.id,(err,user)=>
-      {
+    await abbbMe.clearAbme(req.user._id);
+    Promise1=new Promise((resolve,reject)=>
+    {
+      abbbMe.create({
+        id:req.user.id,
+        aboutMe:req.body.aboutme
+      },(err,abbMe)=>{
         if(err)
         {
           reject();
         }
-      user.abMe=abbMe._id;
-      user.save()
-      .then(()=>
-      {
-        resolve();
-      })
-    });
+        User.findById(req.user.id,(err,user)=>
+        {
+          if(err)
+          {
+            reject();
+          }
+        user.abMe=abbMe._id;
+        user.save()
+        .then(()=>
+        {
+          resolve();
+        })
+      });
 
-    });
-    
-  })
+      });
+      
+    })
+  }
+  if(req.body.profile)
+  {
+    Promise2=new Promise((resolve,reject)=>
+    {
+      Profile.create({
+          id:req.user.id,
+          profile:req.body.profile
+        },(err,prof)=>
+        {
+          User.findById(req.user.id,(err,user)=>
+          {
+            user.profile=prof._id;
+            user.save()
+            .then(()=>{
+              resolve()
+            });
+          });
 
-  Promise1.then(async ()=>
+        })
+        
+        
+        
+    })
+  }
+ Promise.all([Promise1,Promise2])
+ .then(async ()=>
   {
     user=await User.findById(req.user.id)
+    .populate({
+      path:'profile'
+    })
     .populate({
       path:'abMe'
     })
@@ -203,11 +230,6 @@ updateData=async function(dbList,req)
     console.log('reject');
   })
 
-    
-      
-
-      
-    
 
 }
 module.exports.update=async function(req,res)
