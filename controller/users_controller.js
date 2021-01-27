@@ -34,7 +34,90 @@ module.exports.print=async function(req,res)
        });
       await res.sendFile(pdfUrl);
 }
+callDblist=async function(dbList,req)
+{
+  console.log('hello');
+  dbList.forEach(async (key)=>
+  {
+    // bool=true;
+    
+    // if(key=='school')
+    // {
+    //   await edu.clearEdu(req.user.id);
+    //   for(let i=0;i<req.body.school.length;i++)
+    //   {
+    //   var edd=await edu.create({
+    //     id:req.user._id,
+    //     School:req.body.school[i],
+    //     LocationOfSchool:req.body.LOCschool[i],
+    //     yearOfStart:req.body.Sdate[i],
+    //     endYear:req.body.Edate[i],
+    //     fieldOfStudy:req.body.foe[i]
+    //   });
+    //   let user=await User.findById(req.user.id);
+    //   user.education.push(edd.id);
+    //   user.save();
+    // }
+      
+      
+    //}
+    // else if(key=='Past_Experience')
+    // {
+    //   await exp.clearExp(req.user.id);
+    //   var exx=await exp.create({
+    //     id:req.user,
+    //     experience:req.body.Past_Experience
+    //   });
+    //   let user=await User.findById(req.user.id);
+    //   user.experience.push(exx.id);
+    //   user.save();
+    // }
+    // else if(key=='project')
+    // {
+    //   await Project.spalshArray(req.user.id);
+    //   var proj=await Project.create({
+    //     id:req.user,
+    //     project:req.body.project
+    //   });
+    //   let user=await User.findById(req.user.id);
+    //   user.project.push(proj.id);
+    //   user.save();
+    // }
+    
+    if(key=='aboutme')
+    {
+      
+      await abbbMe.clearAbme(req.user._id);
+      // console.log('inside about me')
+      var abbMe=await abbbMe.create({
+        id:req.user,
+        aboutMe:req.body.aboutme
+      });
+      let user=await User.findById(req.user.id);
+      console.log(abbMe);
+      user.abMe=abbMe._id;
+      user.save();
+    }
+    // else if(key=='profile')
+    // {
+    //   var prof=await Profile.create({
+    //     id:req.user.id,
+    //     profile:req.body.profile
+    //   })
+    //   let user=await User.findById(req.user.id);
+    //   user.profile=prof._id;
+    //   user.save();
+    // }
+  })
+   
+  //  var user2=await User.
+  //  findById({_id:req.user._id})
+  //  .populate({
+  //    path:'abMe'
+  //  })
+ 
 
+}
 
 module.exports.update=async function(req,res)
 {
@@ -42,74 +125,10 @@ module.exports.update=async function(req,res)
   var dbList=new Array();
   dbList=Object.keys(req.body);
   user=await User.find({_id:req.user._id});
-  User.splashUser(user);
-  dbList.forEach(async (key)=>
-  {
-    
-    if(key=='school')
-    {
-      await edu.clearEdu(req.user.id);
-      for(let i=0;i<req.body.school.length;i++)
-      {
-      var edd=await edu.create({
-        id:req.user._id,
-        School:req.body.school[i],
-        LocationOfSchool:req.body.LOCschool[i],
-        yearOfStart:req.body.Sdate[i],
-        endYear:req.body.Edate[i],
-        fieldOfStudy:req.body.foe[i]
-      });
-      let user=await User.findById(req.user.id);
-      user.education.push(edd.id);
-      user.save();
-    }
-      
-      
-    }
-    else if(key=='Past_Experience')
-    {
-      await exp.clearExp(req.user.id);
-      var exx=await exp.create({
-        id:req.user,
-        experience:req.body.Past_Experience
-      });
-      let user=await User.findById(req.user.id);
-      user.experience.push(exx.id);
-      user.save();
-    }
-    else if(key=='project')
-    {
-      await Project.spalshArray(req.user.id);
-      var proj=await Project.create({
-        id:req.user,
-        project:req.body.project
-      });
-      let user=await User.findById(req.user.id);
-      user.project.push(proj.id);
-      user.save();
-    }
-    else if(key=='aboutme')
-    {
-      await abbbMe.clearAbme(req.user.id);
-      var abbMe=await abbbMe.create({
-        id:req.user,
-        aboutMe:req.body.aboutme
-      });
-      let user=await User.findById(req.user.id);
-      user.abMe=abbMe.id;
-      user.save();
-    }
-    else if(key=='profile')
-    {
-      var prof=await Profile.create({
-        id:req.user.id,
-        profile:req.body.profile
-      })
-      let user=await User.findById(req.user.id);
-      user.profile=prof.id;
-      user.save();
-    }
-   })
+  await User.splashUser(user);
+  await callDblist(dbList,req);
+  
+  // console.log(user,'this is user *****')
   res.redirect('back');
 }
 

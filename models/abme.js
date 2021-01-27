@@ -15,14 +15,15 @@ const formSchema = new mongoose.Schema({
 formSchema.statics.clearAbme=async function(user)
 {
     var edu=new Array();
-    edu=await eduForm.find({id:user});
+    edu=await meForm.find({id:user});
+    // console.log(edu);
     var arr=new Array();
     edu.forEach((obj)=>{
         arr.push(obj.id);
     })
     arr.forEach((id)=>
     {
-        eduForm.remove({id:id},(err)=>
+        meForm.remove({id:id},(err)=>
         {
             if(err)
             {
