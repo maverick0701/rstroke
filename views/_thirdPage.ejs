@@ -25,15 +25,18 @@
     </div>
     <div class="formDetail">
         <%if(key=='profile'){%>
-            <form action="/image/upload" method="post" enctype="multipart/form-data">
+            <!-- <form action="/image/upload" method="post" enctype="multipart/form-data">
                 <label>Upload Profile Pic</label><br>
                 <input type="file" name="avatar" />
                 <button type="submit">Submit</button>
-            </form>  
+            </form>   -->
             <%}%>
             <%if(key!='education'){%>
         <textarea name=<%=key%> class='txtar'></textarea>
         <%}else{%>
+            <div id='eduForm'>
+                <div class='eduItem'>
+            <i class="fas fa-plus"></i><br>
             <label for="school">School</label><br>
             <input type="text" name="school" id=""><br>
             <label for="LOCschool">Location of school</label><br>
@@ -44,7 +47,21 @@
             <input type="date" name="Edate"><br>
             <label for="foe">Field Of Study</label><br>
             <input type="text" name="foe">
-
+            </div>
+            <div class='eduItem'>
+                <i class="fas fa-plus"></i><br>
+                <label for="school">School</label><br>
+                <input type="text" name="school" id=""><br>
+                <label for="LOCschool">Location of school</label><br>
+                <input type="text" name="LOCschool" id=""><br>
+                <label for="Sdate">Date</label><br>
+                <input type="date" name="Sdate"><br>
+                <label for="Edate">End Date</label><br>
+                <input type="date" name="Edate"><br>
+                <label for="foe">Field Of Study</label><br>
+                <input type="text" name="foe">
+                </div>
+        </div>
             <%}%>
     </div>
     </div> 

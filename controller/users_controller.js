@@ -2,6 +2,7 @@ const User = require('../models/user');
 const edu=require('../models/edu');
 const exp=require('../models/exp');
 const Project=require('../models/project');
+const Profile=require('../models/profile');
 const abbbMe=require('../models/abMe');
 const Form=require('../models/pdfForm');
 const fs = require('fs');
@@ -96,8 +97,16 @@ module.exports.update=async function(req,res)
       });
       let user=await User.findById(req.user.id);
       user.abMe=abbMe.id;
-
-      console.log(user.id);
+      user.save();
+    }
+    else if(key=='profile')
+    {
+      var prof=await Profile.create({
+        id:req.user.id,
+        profile:req.body.profile
+      })
+      let user=await User.findById(req.user.id);
+      user.profile=prof.id;
       user.save();
     }
    })

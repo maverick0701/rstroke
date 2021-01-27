@@ -31,10 +31,10 @@ const userSchema = new mongoose.Schema({
       type:mongoose.Schema.Types.ObjectId,
       ref:'expForm'
     }],
-    profile:[{
+    profile:{
       type:mongoose.Schema.Types.ObjectId,
       ref:'proForm'
-    }],
+    },
     project:[{
       type:mongoose.Schema.Types.ObjectId,
       ref:'projForm'
