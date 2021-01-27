@@ -34,9 +34,11 @@ module.exports.print=async function(req,res)
        });
       await res.sendFile(pdfUrl);
 }
-callDblist=async function(dbList,req)
+callDblist=function(dbList,req,bool)
 {
-  console.log('hello');
+  return new Promise((resolve,reject)=>{
+ 
+  console.log('hello my first promise ');
   dbList.forEach(async (key)=>
   {
     // bool=true;
@@ -94,7 +96,7 @@ callDblist=async function(dbList,req)
         aboutMe:req.body.aboutme
       });
       let user=await User.findById(req.user.id);
-      console.log(abbMe);
+      // console.log(abbMe);
       user.abMe=abbMe._id;
       user.save();
     }
@@ -108,15 +110,9 @@ callDblist=async function(dbList,req)
     //   user.profile=prof._id;
     //   user.save();
     // }
-  })
-   
-  //  var user2=await User.
-  //  findById({_id:req.user._id})
-  //  .populate({
-  //    path:'abMe'
-  //  })
- 
-
+  });
+  resolve();
+})
 }
 
 module.exports.update=async function(req,res)
@@ -124,12 +120,27 @@ module.exports.update=async function(req,res)
   
   var dbList=new Array();
   dbList=Object.keys(req.body);
+  var bool=false;
   user=await User.find({_id:req.user._id});
   await User.splashUser(user);
-  await callDblist(dbList,req);
-  
+  callDblist(dbList,req,bool)
+  .then(async ()=>
+  {
+    var user2=await User.findById({_id:req.user.id})
+   .populate({
+     path:'abMe'
+   })
+   .populate(
+     {
+       path:'profile'
+     }
+   )
+   console.log(user2)
+   
+   
+  });
+  return res.redirect('back')
   // console.log(user,'this is user *****')
-  res.redirect('back');
 }
 
 module.exports.profile=function(req,res)
