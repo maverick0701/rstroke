@@ -59,3 +59,9 @@ body {
   left: 93.2%;
   height: 50px;
   border-bottom-right-radius: 30px; }
+
+#eduForm {
+  display: flex;
+  flex-direction: row; }
+  #eduForm .eduItem {
+    margin-right: 30px; }
