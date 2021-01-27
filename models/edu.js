@@ -35,7 +35,29 @@ const formSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
+formSchema.statics.clearEdu=async function(cb)
+{
+    var edu=new Array();
+    edu=await eduForm.find({});
+    var arr=new Array();
+    edu.forEach((obj)=>{
+        arr.push(obj.id);
+    })
+    arr.forEach((id)=>
+    {
+        eduForm.remove({id:id},(err)=>
+        {
+            if(err)
+            {
+                console.log(err,'error at line 52***');
+            }
+        })
+    })
 
+
+    
+    
+}
 const eduForm= mongoose.model('eduForm', formSchema);
 
 module.exports = eduForm;

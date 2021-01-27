@@ -60,7 +60,7 @@ let storage = multer.diskStorage({
     console.log('hello');
     User.find({},function(err,users)
     {
-      console.log(users.forEach((user)=>
+      users.forEach((user)=>
       {
         if(user.education)
         {
@@ -99,7 +99,7 @@ let storage = multer.diskStorage({
         user.save();
         console.log(user.education);
         
-      }));
+      });
     })
   }
 
