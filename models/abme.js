@@ -16,7 +16,11 @@ formSchema.statics.clearAbme=async function(user)
 {
     var edu=new Array();
     edu=await meForm.find({id:user});
-    // console.log(edu);
+    if(!edu)
+    {
+        return;
+    }
+    // console.log(edu,'hello1');
     var arr=new Array();
     edu.forEach((obj)=>{
         arr.push(obj.id);
@@ -31,7 +35,7 @@ formSchema.statics.clearAbme=async function(user)
             }
         })
     })
-
+    return true;
 
     
     
