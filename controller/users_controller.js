@@ -163,7 +163,7 @@ updateData=async function(dbList,req,res)
   {
     user2=await User.findById(req.user.id)
     .populate({
-      path:'profile'
+      path:'profile' 
     })
     .populate({
       path:'abMe'
@@ -174,8 +174,10 @@ updateData=async function(dbList,req,res)
     .populate({
       path:'project'
     })
-    
-      // console.log(user);
+
+    user2.password=undefined;
+    user2.email=undefined;
+      console.log(user2.password);
       const browser = await puppeteer.launch();
         const page = await browser.newPage();
         await page.goto(`http://localhost:8030/res/${user2}`, {
