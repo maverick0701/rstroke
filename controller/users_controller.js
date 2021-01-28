@@ -191,8 +191,10 @@ updateData=async function(dbList,req)
   }
   if(req.body.profile)
   {
+    await Profile.clear(req.user._id);
     Promise2=new Promise((resolve,reject)=>
     {
+      
       Profile.create({
           id:req.user.id,
           profile:req.body.profile
