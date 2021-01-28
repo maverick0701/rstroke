@@ -1,0 +1,181 @@
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/resume.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+
+<div class="main-page">
+    <div class="top">
+        <h1 class="Applicant_name"><%=user1.name%></h1>
+        <div class="post">
+            <h3 class="Applicant_post">Software Developer Intern</h3>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="left">
+            <div class="contact">
+                <!-- <div class="contact-head">
+                    <span>Contact:</span>
+                </div> -->
+                <div class="contact-body">
+                    <div class="mail">
+                        <div class="mail-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="mail-value" style="overflow-wrap: break-word;">ray.sdfgfghkjyash.08 @gmail.com</div>
+                    </div>
+                    <div class="ph-num">
+                        <div class="ph-num-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="ph-num-value">1234567890</div>
+                    </div>
+                    <div class="linked-in">
+                        <div class="linkedin-icon"><i class="fab fa-linkedin-in"></i></div>
+                        <div class="linkedin-value">https://www.linkedin.com /in/yash-ray-cri80vt/</div>
+                    </div>
+                    <div class="location">
+                        <div class="location-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="location-value">Jamshedpur, Jharkhand, IN</div>
+                    </div>                       
+                                            
+                </div>
+            </div>
+            <div class="skills">
+                <div class="skills-head">
+                    <span>Skills</span>
+                </div>
+                <div class="skills-body">
+                    <div class="skill1 skill">HTML5</div>
+                    <div class="skill2 skill">CSS3</div>
+                    <div class="skill3 skill">Javascript</div>
+                    <div class="skill4 skill">C++</div>
+                    <div class="skill5 skill">JAVA</div>
+                    <div class="skill6 skill">Excellent Work Ethic</div>
+                    <div class="skill7 skill">Team Player</div>
+                </div>
+            </div>
+            <div class="languages">
+                <div class="lang-head">
+                    <span>Languages Known</span>
+                </div>
+                <div class="skills-body">
+                    <div class="skill1 skill">English</div>
+                    <div class="skill2 skill">Hindi</div>
+                    <div class="skill3 skill">French</div>
+                </div>
+            </div>
+            <div class="additional-info">
+                <div class="add-info-head">
+                    Additional Information
+                </div>
+                <div class="add-info-body">
+                    Cupidatat culpa nulla consectetur commodo incididunt laborum enim in mollit cillum.Dolore officia labore minim aliqua incididunt adipisicing.Tempor laboris sunt exercitation fugiat et sit elit ullamco esse aliquip laborum.Mollit nostrud qui non ut.Est incididunt veniam sit quis quis sunt non non deserunt elit qui eu sint reprehenderit.
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="summary">
+                <div class="summary-head">
+                    Resume Objective
+                </div>
+                <div class="summary-body">
+                    <span class="summary-content"><%=user1.abMe.aboutMe%></span>
+                </div>
+            </div>
+            <div class="education">
+                <div class="education-head">
+                    Education
+                </div>
+                
+                <div class="education-body">
+                    <%for(let i of user1.education){%>
+                    <div class="college">
+                        <div class="college-name">
+                            <%=i.School%>
+                        </div>
+                        <div class="college-detail">
+                            <ul>
+                                <li>Year of Graduation: <%=parseInt(i.endYear)%></li>
+                                <li>Subjects Studied: <%=i.fieldOfStudy%></li>
+                                <li>Current CGPA:<%=i.grade%></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <%}%>
+                    <!-- <div class="std12">
+                        <div class="std12-name">
+                            Loyola School
+                        </div>
+                        <div class="std12-detail">
+                            <ul>
+                                <li>Year of Passing: 2019</li>
+                                <li>Stream: Science with Computer</li>
+                                <li>Percentage: 93.5%</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="std12">
+                        <div class="std12-name">
+                            Loyola School
+                        </div>
+                        <div class="std12-detail">
+                            <ul>
+                                <li>Year of Passing: 2017</li>
+                                <li>Stream: Science</li>
+                                <li>Percentage: 94.4%</li>
+                            </ul>
+                        </div>
+
+                    </div> -->
+                </div>
+            </div>
+            <div class="works">
+                <div class="work-head">
+                    Work Experience / Projects
+                </div>
+                <div class="work-body">
+                    <div class="work">
+                        <div class="work-name">
+                            Stockify
+                        </div>
+                        <div class="work-detail">
+                            <ul>
+                                <li>Ut est commodo ullamco nisi duis.Id Lorem Lorem esse occaecat do amet mollit consectetur officia dolor tempor aliqua ea id.Dolor cupidatat qui cillum laborum voluptate.</li>
+                                <li>Adipisicing sunt fugiat ullamco incididunt nostrud.In pariatur officia est deserunt incididunt consectetur.</li>
+                                <li>Ullamco esse adipisicing aliquip aliquip ipsum cillum eiusmod esse.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="work-name">
+                            Stockify
+                        </div>
+                        <div class="work-detail">
+                            <ul>
+                                <li>Ut est commodo ullamco nisi duis.Id Lorem Lorem esse occaecat do amet mollit consectetur officia dolor tempor aliqua ea id.Dolor cupidatat qui cillum laborum voluptate.</li>
+                                <li>Adipisicing sunt fugiat ullamco incididunt nostrud.In pariatur officia est deserunt incididunt consectetur.</li>
+                                <li>Ullamco esse adipisicing aliquip aliquip ipsum cillum eiusmod esse.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="work-name">
+                            Stockify
+                        </div>
+                        <div class="work-detail">
+                            <ul>
+                                <li>Ut est commodo ullamco nisi duis.Id Lorem Lorem esse occaecat do amet mollit consectetur officia dolor tempor aliqua ea id.Dolor cupidatat qui cillum laborum voluptate.</li>
+                                <li>Adipisicing sunt fugiat ullamco incididunt nostrud.In pariatur officia est deserunt incididunt consectetur.</li>
+                                <li>Ullamco esse adipisicing aliquip aliquip ipsum cillum eiusmod esse.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="achievements">
+                <div class="achievement-head">
+                    Achievements
+                </div>
+                <div class="achievement-body">
+                    Pariatur incididunt fugiat deserunt Lorem dolore.Ullamco aute sit consectetur dolor in qui Lorem dolor excepteur non aliquip.Esse quis cillum esse culpa ipsum ex aliqua in amet minim amet consectetur qui.Pariatur incididunt fugiat deserunt Lorem dolore.Ullamco aute sit consectetur dolor in qui Lorem dolor excepteur non aliquip.Pariatur incididunt fugiat deserunt Lorem dolore.Ullamco aute sit consectetur dolor in qui Lorem dolor excepteur non aliquip.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
