@@ -157,7 +157,7 @@ module.exports.print=async function(req,res)
 //}
 updateData=async function(dbList,req)
 {
-  let Promise1,Promise2;
+  let Promise1,Promise2,Promise3;
   if(req.body.aboutme)
   {
     await abbbMe.clearAbme(req.user._id);
@@ -215,7 +215,45 @@ updateData=async function(dbList,req)
         
     })
   }
- Promise.all([Promise1,Promise2])
+  if(req.body.school)
+  {
+    await edu.clearEdu(req.user.id);
+    Promise3=new Promise((resolve,reject)=>
+    {
+      for(let i=0;i<req.body.school.length;i++)
+      {
+      edu.create({
+        id:req.user._id,
+        School:req.body.school[i],
+        LocationOfSchool:req.body.LOCschool[i],
+        yearOfStart:req.body.Sdate[i],
+        endYear:req.body.Edate[i],
+        fieldOfStudy:req.body.foe[i]
+      },(err,edd)=>
+      {
+        User.findById(req.user.id,(err,user)=>
+        {
+          user.education.push(edd._id);
+          
+          user.save()
+          .then(()=>
+          {
+            console.log(user.education);
+            if(i==req.body.school.length-1)
+            {
+              console.log(i,user,'hello inside edu');
+              resolve();
+            }
+          });
+        })
+
+      });
+      
+    }
+
+    })
+  }
+ Promise.all([Promise1,Promise2,Promise3])
  .then(async ()=>
   {
     user=await User.findById(req.user.id)
@@ -224,6 +262,9 @@ updateData=async function(dbList,req)
     })
     .populate({
       path:'abMe'
+    })
+    .populate({
+      path:'education'
     })
     console.log(user);
   })
