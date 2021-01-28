@@ -155,7 +155,7 @@ module.exports.print=async function(req,res)
 // })
 
 //}
-updateData=async function(dbList,req)
+updateData=async function(dbList,req,res)
 {
   let Promise1,Promise2,Promise3,Promise4;
   if(req.body.project)
@@ -293,8 +293,13 @@ updateData=async function(dbList,req)
     .populate({
       path:'project'
     })
-    console.log('this is user');
-    console.log(user);
+    
+      console.log(user);
+      return res.render('_fourth.ejs',
+      {
+        user1:user
+      })
+    
   })
   .catch(()=>
   {
@@ -312,10 +317,10 @@ module.exports.update=async function(req,res)
   user=await User.find({_id:req.user._id});
   
   User.splashUser(user);
-  await updateData(dbList,req)
+  await updateData(dbList,req,res)
   
 
-  return res.redirect('back')
+  // return res.redirect('back')
   // console.log(user,'this is user *****')
 }
 
@@ -330,4 +335,3 @@ module.exports.profile=function(req,res)
   
 }
 
-// 6011a833dd2b062697357b76
