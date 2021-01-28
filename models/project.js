@@ -12,29 +12,34 @@ const formSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
-formSchema.statics.spalshArray=async function(user)
-  {
-    var array=new Array();
-    array=await projForm.find({id:user});
-    var array2=new Array;
-    array.forEach((obj1)=>
+formSchema.statics.clear=async function(user)
+{
+    var edu=new Array();
+    edu=await projForm.find({id:user});
+    if(!edu)
     {
-        array2.push(obj1.id);
+        return;
+    }
+    // console.log(edu,'hello1');
+    var arr=new Array();
+    edu.forEach((obj)=>{
+        arr.push(obj.id);
     })
-    console.log(array2);
-        await array2.forEach((idi)=>
+    arr.forEach((id)=>
+    {
+        projForm.remove({id:id},(err)=>
         {
-            
-            projForm.remove({id:idi},(err)=>
-                {
-                    if(err)
-                    {
-                        console.log(err);
-                    }
-                })
+            if(err)
+            {
+                console.log(err,'error at line 52***');
+            }
         })
+    })
+    return true;
+
     
-  }
+    
+}
 const projForm= mongoose.model('projForm', formSchema);
 
 module.exports = projForm;

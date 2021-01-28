@@ -69,11 +69,11 @@ let storage = multer.diskStorage({
     {
       user[0].experience.pop();
     }
-    var i=0;
-    while(i<user[0].project.length)
-    {
-      user[0].project.pop();
-    }
+    //var i=0;
+    // while(i<user[0].project.length)
+    // {
+    //   user[0].project.pop();
+    // }
     user[0].save();
   }
 
