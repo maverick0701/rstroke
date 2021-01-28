@@ -11,150 +11,31 @@ const puppeteer = require("puppeteer");
 const { compile } = require('ejs');
 const todays_date = new Date();
 
-module.exports.print=async function(req,res)
-{
-    
-        const browser = await puppeteer.launch();
-        const page = await browser.newPage();
-        await page.goto("http://localhost:8030/users/profile/", {
-          waitUntil: "networkidle2"
-        });
-        await page.setViewport({ width: 1680, height: 1050 });
-        const pdfUrl=`${Path.join(__dirname,'..' ,'fileStorage', todays_date.getTime() + '.pdf')}`;
-        const Pdf=await page.pdf({
-          path: pdfUrl,
-          format: "A4",
-          printBackground: true
-        });
-      
-        await browser.close();
-      
-      await res.set({
-        "Content-Type": "application/pdf",
-        "Content-Length":Pdf.length
-       });
-      await res.sendFile(pdfUrl);
-}
-// callDblist=function(dbList,req,bool)
+// module.exports.print=async function(req,res)
 // {
-//   newBOOl=false;
-//   return new Promise((resolve,reject)=>{
- 
-//   console.log('hello my first promise ');
-//   dbList.forEach(async (key)=>
-//   {
     
-//     if(key=='school')
-//     {
-//       await edu.clearEdu(req.user.id);
-//       for(let i=0;i<req.body.school.length;i++)
-//       {
-//       var edd=await edu.create({
-//         id:req.user._id,
-//         School:req.body.school[i],
-//         LocationOfSchool:req.body.LOCschool[i],
-//         yearOfStart:req.body.Sdate[i],
-//         endYear:req.body.Edate[i],
-//         fieldOfStudy:req.body.foe[i]
-//       });
-//       let user=await User.findById(req.user.id);
-//       user.education.push(edd.id);
-//       user.save();
-//     }
+//         const browser = await puppeteer.launch();
+//         const page = await browser.newPage();
+//         await page.goto("http://localhost:8030/users/update/", {
+//           waitUntil: "networkidle2"
+//         });
+//         await page.setViewport({ width: 1680, height: 1050 });
+//         const pdfUrl=`${Path.join(__dirname,'..' ,'fileStorage', todays_date.getTime() + '.pdf')}`;
+//         const Pdf=await page.pdf({
+//           path: pdfUrl,
+//           format: "A4",
+//           printBackground: true
+//         });
       
+//         await browser.close();
       
-//     }
-//     else if(key=='Past_Experience')
-//     {
-//       await exp.clearExp(req.user.id);
-//       var exx=await exp.create({
-//         id:req.user,
-//         experience:req.body.Past_Experience
-//       });
-//       let user=await User.findById(req.user.id);
-//       user.experience.push(exx.id);
-//       user.save();
-//     }
-//     else if(key=='project')
-//     {
-//       await Project.spalshArray(req.user.id);
-//       var proj=await Project.create({
-//         id:req.user,
-//         project:req.body.project
-//       });
-//       let user=await User.findById(req.user.id);
-//       user.project.push(proj.id);
-//       user.save();
-//     }
-    
-//     if(key=='aboutme')
-//     {
-//       new Promise(async (resolve,reject)=>
-//       {
-        
-//         bool1=await abbbMe.clearAbme(req.user._id);
-//         console.log(bool1)
-//         if(bool1==true)
-//         {
-//           resolve();
-//         }
-//         else
-//         {
-//           reject();
-//         }
-//       })
-//       .then(async ()=>{
-//         var abbMe=await abbbMe.create({
-//           id:req.user,
-//           aboutMe:req.body.aboutme
-//         })
-      
-//         let user=await User.findById(req.user.id);
-//         console.log(abbMe._id,'this is abMe');
-//         user.abMe=abbMe._id;
-        
-//         user.save();
-        
-//       })
-//     .then(async ()=>
-//   {
-//     var user2=await User.findById(req.user.id)
-//   //  .populate({
-//   //    path:'abMe'
-//   //  })
-//   //  .populate(
-//   //    {
-//   //      path:'profile'
-//   //    }
-//   //  )
-//    console.log(user2.abMe,'this is user2');
-   
-//   })
-//       .catch(()=>{console.log('eror*********')});
-//       newBOOl=true;
-//       // console.log('inside about me')
-      
+//       await res.set({
+//         "Content-Type": "application/pdf",
+//         "Content-Length":Pdf.length
+//        });
+//       await res.sendFile(pdfUrl);
+// }
 
-//     }
-//     else if(key=='profile')
-//     {
-//       var prof=await Profile.create({
-//         id:req.user.id,
-//         profile:req.body.profile
-//       })
-//       let user=await User.findById(req.user.id);
-//       user.profile=prof._id;
-//       user.save();
-//     }
-    
-//   });
-//   if(newBOOl)
-//   {
-//   resolve();
-//   }
-// })
-
-//}
 updateData=async function(dbList,req,res)
 {
   let Promise1,Promise2,Promise3,Promise4;
@@ -280,7 +161,7 @@ updateData=async function(dbList,req,res)
  Promise.all([Promise1,Promise2,Promise3,Promise4])
  .then(async ()=>
   {
-    user=await User.findById(req.user.id)
+    user2=await User.findById(req.user.id)
     .populate({
       path:'profile'
     })
@@ -294,11 +175,31 @@ updateData=async function(dbList,req,res)
       path:'project'
     })
     
-      console.log(user);
-      return res.render('_fourth.ejs',
-      {
-        user1:user
-      })
+      // console.log(user);
+      const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+        await page.goto(`http://localhost:8030/res/${user2}`, {
+          waitUntil: "networkidle2"
+        });
+        await page.setViewport({ width: 1680, height: 1050 });
+        const pdfUrl=`${Path.join(__dirname,'..' ,'fileStorage', todays_date.getTime() + '.pdf')}`;
+        const Pdf=await page.pdf({
+          path: pdfUrl,
+          format: "A4",
+          printBackground: true
+        });
+      
+        await browser.close();
+      
+      await res.set({
+        "Content-Type": "application/pdf",
+        "Content-Length":Pdf.length
+       });
+      await res.sendFile(pdfUrl);
+      // return res.render('_fourth.ejs',
+      // {
+      //   user1:user
+      // })
     
   })
   .catch(()=>

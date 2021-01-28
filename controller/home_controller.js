@@ -124,3 +124,11 @@ module.exports.upload=async function(req,res)
 });
     return res.redirect('back');
 }
+
+module.exports.resume=function(req,res)
+{
+    
+    res.render('_fourth.ejs',{
+        user1:req.params.user
+    })
+}
