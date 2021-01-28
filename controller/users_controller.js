@@ -157,7 +157,26 @@ module.exports.print=async function(req,res)
 //}
 updateData=async function(dbList,req)
 {
-  let Promise1,Promise2,Promise3;
+  let Promise1,Promise2,Promise3,Promise4;
+  if(req.body.project)
+  {
+    await Project.clear(req.user._id);
+    Promise4=new Promise((resolve,reject)=>
+    {
+      Project.create({
+        id:req.user,
+        project:req.body.project
+      },(err,proj)=>
+      {
+        User.findById(req.user.id,(err,user)=>
+        {
+          user.project=proj._id;
+          user.save()
+          .then(resolve())
+        })
+      });
+    })
+  }
   if(req.body.aboutme)
   {
     await abbbMe.clearAbme(req.user._id);
@@ -189,6 +208,7 @@ updateData=async function(dbList,req)
       
     })
   }
+ 
   if(req.body.profile)
   {
     await Profile.clear(req.user._id);
@@ -215,8 +235,9 @@ updateData=async function(dbList,req)
         
     })
   }
-  if(req.body.school)
+  if(req.body.school[0]!='')
   {
+    console.log(req.body.school);
     await edu.clearEdu(req.user.id);
     Promise3=new Promise((resolve,reject)=>
     {
@@ -234,14 +255,17 @@ updateData=async function(dbList,req)
         User.findById(req.user.id,(err,user)=>
         {
           user.education.push(edd._id);
-          
+          if(err)
+          {
+            reject();
+          }
           user.save()
           .then(()=>
           {
-            console.log(user.education);
+            // console.log(user.education);
             if(i==req.body.school.length-1)
             {
-              console.log(i,user,'hello inside edu');
+              // console.log(i,user,'hello inside edu');
               resolve();
             }
           });
@@ -253,7 +277,7 @@ updateData=async function(dbList,req)
 
     })
   }
- Promise.all([Promise1,Promise2,Promise3])
+ Promise.all([Promise1,Promise2,Promise3,Promise4])
  .then(async ()=>
   {
     user=await User.findById(req.user.id)
@@ -266,6 +290,10 @@ updateData=async function(dbList,req)
     .populate({
       path:'education'
     })
+    .populate({
+      path:'project'
+    })
+    console.log('this is user');
     console.log(user);
   })
   .catch(()=>
