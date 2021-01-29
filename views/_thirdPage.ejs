@@ -10,7 +10,7 @@
 <div id='box'>
     <form action="/users/update/" method="POST">
 <%keys.forEach((key,index)=>{%>
-    <%if(key=='Past_Experience'){var newKey=key.split('_');var oldKey=newKey[0]+' '+newKey[1]}%>
+    
     <%if(index==0){%>
         <div  class='con' id="divs">
     <%}else{%>
@@ -19,7 +19,8 @@
     <div class="header">
         <%if(key=='Past_Experience'){%>
             <h1>Details</h1>
-            
+            <%}else if(key=='profile'){%>
+                <h1>Additional Information</h1>
             <%}else{%>
         <h1><%=key%></h1>
         <%}%>
@@ -28,6 +29,8 @@
         <%if(key=='Past_Experience'){%>
             <label for="name">Name</label><br>
             <input type="text" name="name" id=""><br>
+            <label for="position">Position</label><br>
+            <input type="text" name="job" id=""><br>
             <label for="email">Email</label><br>
             <input type="text" name="email"><br>
             <label for="phone">Phone</label><br>
@@ -39,6 +42,7 @@
             <%} else if(key!='education' && key!='skill'){%>
         <textarea name=<%=key%> class='txtar'></textarea>
             <%}else if(key=='skill'){%>
+            
             <label for="skill1">Skill1</label><br>
             <input type="text" name="skill1"><br>
             <label for="skill2">Skill2</label><br>

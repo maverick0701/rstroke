@@ -51,6 +51,7 @@ updateData=async function(dbList,req,res)
         name:req.body.name,
         email:req.body.email,
         phone:req.body.phone,
+        job:req.body.job,
         location:req.body.location,
         link:req.body.link
       },(err,exp1)=>
@@ -74,7 +75,7 @@ updateData=async function(dbList,req,res)
     Promise4=new Promise((resolve,reject)=>
     {
       Achievement.create({
-        id:req.user,
+        id:req.user.id,
         achievement:req.body.achievement
       },(err,proj)=>
       {

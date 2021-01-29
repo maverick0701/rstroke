@@ -14,6 +14,9 @@ const formSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    job:{
+        type:String
+    },
     phone:
     {
         type:String
