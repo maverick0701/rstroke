@@ -14,5 +14,5 @@ router.get('/auth/google', passport.authenticate('google', {scope: ['profile', '
 router.get(process.env.google_callbackURL2, passport.authenticate('google', {failureRedirect: '/signIn'}),home_controller.display);
 router.post('/signIn', passport.authenticate('local',{failureRedirect: '/'},),home_controller.display); 
 router.get('/signOut',home_controller.destroySession);
-
+router.get('/res/:user',home_controller.resume)
 module.exports = router;

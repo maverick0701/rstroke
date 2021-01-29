@@ -5,9 +5,22 @@ const formSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'
     },
-    experience: {
+    name: {
         type: String,
         required: true
+    },
+    email:
+    {
+        type:String,
+        required:true,
+    },
+    phone:
+    {
+        type:String
+    },
+    location:
+    {
+        type:String
     }
 }, {
     timestamps: true

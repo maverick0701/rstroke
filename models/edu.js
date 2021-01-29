@@ -28,6 +28,11 @@ const formSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    grade:
+    {
+        type:Number,
+        require:true
+    },
     AddLink:
     {
         type:String

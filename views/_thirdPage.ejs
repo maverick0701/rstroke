@@ -18,20 +18,24 @@
     <%}%>
     <div class="header">
         <%if(key=='Past_Experience'){%>
-            <h1><%=oldKey%></h1>
+            <h1>Details</h1>
+            
             <%}else{%>
         <h1><%=key%></h1>
         <%}%>
     </div>
     <div class="formDetail">
-        <%if(key=='profile'){%>
-            <!-- <form action="/image/upload" method="post" enctype="multipart/form-data">
-                <label>Upload Profile Pic</label><br>
-                <input type="file" name="avatar" />
-                <button type="submit">Submit</button>
-            </form>   -->
-            <%}%>
-            <%if(key!='education'){%>
+        <%if(key=='Past_Experience'){%>
+            <label for="name">Name</label><br>
+            <input type="text" name="name" id=""><br>
+            <label for="email">Email</label><br>
+            <input type="text" name="email"><br>
+            <label for="phone">Phone</label><br>
+            <input type="number" name="phone" id=""><br>
+            <label for="location">Location</label><br>
+            <input type="text" name="location"><br>
+        
+            <%} else if(key!='education'){%>
         <textarea name=<%=key%> class='txtar'></textarea>
         <%}else{%>
             <div id='eduForm'>

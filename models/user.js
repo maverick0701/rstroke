@@ -27,10 +27,10 @@ const userSchema = new mongoose.Schema({
       type:mongoose.Schema.Types.ObjectId,
       ref:'meForm'
     },
-    experience:[{
+    experience:{
       type:mongoose.Schema.Types.ObjectId,
       ref:'expForm'
-    }],
+    },
     profile:{
       type:mongoose.Schema.Types.ObjectId,
       ref:'proForm'
@@ -65,10 +65,10 @@ let storage = multer.diskStorage({
             
     }
     var i=0;
-    while(i<user[0].experience.length)
-    {
-      user[0].experience.pop();
-    }
+    // while(i<user[0].experience.length)
+    // {
+    //   user[0].experience.pop();
+    // }
     //var i=0;
     // while(i<user[0].project.length)
     // {

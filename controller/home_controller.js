@@ -5,6 +5,30 @@ const fs = require('fs');
 const path = require('path');
 const { format } = require('path');
 const todays_date = new Date();
+function lzw_decode(s) {
+    var dict = {};
+    var data = (s + "").split("");
+    var currChar = data[0];
+    var oldPhrase = currChar;
+    var out = [currChar];
+    var code = 256;
+    var phrase;
+    for (var i=1; i<data.length; i++) {
+        var currCode = data[i].charCodeAt(0);
+        if (currCode < 256) {
+            phrase = data[i];
+        }
+        else {
+           phrase = dict[currCode] ? dict[currCode] : (oldPhrase + currChar);
+        }
+        out.push(phrase);
+        currChar = phrase.charAt(0);
+        dict[code] = oldPhrase + currChar;
+        code++;
+        oldPhrase = phrase;
+    }
+    return out.join("");
+  }
 module.exports.home=function(req,res){
     // console.log('*******',__dirname);
     // path1= `${path.join(__dirname,'..' ,'fileStorage')}`;
@@ -127,8 +151,11 @@ module.exports.upload=async function(req,res)
 
 module.exports.resume=function(req,res)
 {
-    
+    let user2=req.params.user;
+  
+    user2=lzw_decode(user2);
+    user3=JSON.parse(user2);
     res.render('_fourth.ejs',{
-        user1:req.params.user
+        user1:user3
     })
 }
