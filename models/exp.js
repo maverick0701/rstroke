@@ -21,6 +21,9 @@ const formSchema = new mongoose.Schema({
     location:
     {
         type:String
+    },
+    link:{
+        type:String
     }
 }, {
     timestamps: true

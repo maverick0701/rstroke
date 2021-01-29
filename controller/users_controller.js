@@ -1,9 +1,10 @@
 const User = require('../models/user');
 const edu=require('../models/edu');
 const exp=require('../models/exp');
-const Project=require('../models/project');
+const Achievement=require('../models/project');
 const Profile=require('../models/profile');
 const abbbMe=require('../models/abMe');
+const skill=require('../models/skill');
 const Form=require('../models/pdfForm');
 const fs = require('fs');
 const Path = require('path');
@@ -11,61 +12,35 @@ const puppeteer = require("puppeteer");
 const { compile, localsName } = require('ejs');
 const { resolve } = require('path');
 const todays_date = new Date();
-function lzw_encode(s) {
-  var dict = {};
-  var data = (s + "").split("");
-  var out = [];
-  var currChar;
-  var phrase = data[0];
-  var code = 256;
-  for (var i=1; i<data.length; i++) {
-      currChar=data[i];
-      if (dict[phrase + currChar] != null) {
-          phrase += currChar;
-      }
-      else {
-          out.push(phrase.length > 1 ? dict[phrase] : phrase.charCodeAt(0));
-          dict[phrase + currChar] = code;
-          code++;
-          phrase=currChar;
-      }
-  }
-  out.push(phrase.length > 1 ? dict[phrase] : phrase.charCodeAt(0));
-  for (var i=0; i<out.length; i++) {
-      out[i] = String.fromCharCode(out[i]);
-  }
-  return out.join("");
-}
-
 require('dotenv').config({ path:Path.join(__dirname,'..','env','one.env')});
-// module.exports.print=async function(req,res)
-// {
-    
-//         const browser = await puppeteer.launch();
-//         const page = await browser.newPage();
-//         await page.goto("http://localhost:8030/users/update/", {
-//           waitUntil: "networkidle2"
-//         });
-//         await page.setViewport({ width: 1680, height: 1050 });
-//         const pdfUrl=`${Path.join(__dirname,'..' ,'fileStorage', todays_date.getTime() + '.pdf')}`;
-//         const Pdf=await page.pdf({
-//           path: pdfUrl,
-//           format: "A4",
-//           printBackground: true
-//         });
-      
-//         await browser.close();
-      
-//       await res.set({
-//         "Content-Type": "application/pdf",
-//         "Content-Length":Pdf.length
-//        });
-//       await res.sendFile(pdfUrl);
-// }
-
 updateData=async function(dbList,req,res)
 {
-  let Promise1,Promise2,Promise3,Promise4,Promise5;
+  let Promise1,Promise2,Promise3,Promise4,Promise5,Promise6;
+  if(req.body.skill1)
+  {
+    Promise6=new Promise((resolve,reject)=>
+    {
+      skill.create({
+        id:req.user.id,
+        skill1:req.body.skill1,
+        skill2:req.body.skill2,
+        skill3:req.body.skill3,
+        skill4:req.body.skill4,
+        skill5:req.body.skill5,
+        skill6:req.body.skill6,
+        skill7:req.body.skill7
+      },(error,skill)=>
+      {
+        User.findById(req.user.id,(err,user)=>
+        {
+          user.skill=skill._id;
+          user.save()
+          .then(resolve());
+        })
+      })
+
+    })
+  }
   if(req.body.name)
   {
     await exp.clearExp(req.user._id);
@@ -76,7 +51,8 @@ updateData=async function(dbList,req,res)
         name:req.body.name,
         email:req.body.email,
         phone:req.body.phone,
-        location:req.body.location
+        location:req.body.location,
+        link:req.body.link
       },(err,exp1)=>
       {
         if(err)
@@ -92,19 +68,19 @@ updateData=async function(dbList,req,res)
       })
     })
   }
-  if(req.body.project)
+  if(req.body.achievement)
   {
-    await Project.clear(req.user._id);
+    await Achievement.clear(req.user._id);
     Promise4=new Promise((resolve,reject)=>
     {
-      Project.create({
+      Achievement.create({
         id:req.user,
-        project:req.body.project
+        achievement:req.body.achievement
       },(err,proj)=>
       {
         User.findById(req.user.id,(err,user)=>
         {
-          user.project=proj._id;
+          user.achievement=proj._id;
           user.save()
           .then(resolve())
         })
@@ -142,7 +118,7 @@ updateData=async function(dbList,req,res)
       
     })
   }
- 
+
   if(req.body.profile)
   {
     await Profile.clear(req.user._id);
@@ -171,7 +147,6 @@ updateData=async function(dbList,req,res)
   }
   if(req.body.school[0]!='')
   {
-    //console.log(req.body.school);
     await edu.clearEdu(req.user.id);
     Promise3=new Promise((resolve,reject)=>
     {
@@ -181,7 +156,6 @@ updateData=async function(dbList,req,res)
         id:req.user._id,
         School:req.body.school[i],
         LocationOfSchool:req.body.LOCschool[i],
-        yearOfStart:req.body.Sdate[i],
         endYear:req.body.Edate[i],
         fieldOfStudy:req.body.foe[i],
         grade:req.body.grade[i]
@@ -210,32 +184,12 @@ updateData=async function(dbList,req,res)
 
     })
   }
- Promise.all([Promise1,Promise2,Promise3,Promise4,Promise5])
+ Promise.all([Promise1,Promise2,Promise3,Promise4,Promise5,Promise6])
  .then(async ()=>
   {
-    user2=await User.findById(req.user.id)
-    .populate({
-      path:'profile',
-      select:'profile'
-    })
-    .populate('abMe','aboutMe')
-    .populate({
-      path:'education'
-    })
-    .populate({
-      path:'project',
-      select:'project'
-    })
-    .populate({
-      path:'experience'
-    })
-    console.log(user2);
-    user2=JSON.stringify(user2);
-    user2=lzw_encode(user2)
-      
-      const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch();
         const page = await browser.newPage();
-        await page.goto(process.env.pdfUrl+user2, {
+        await page.goto(process.env.pdfUrl+req.user.id, {
           waitUntil: "networkidle2"
         });
         await page.setViewport({ width: 1680, height: 1050 });
@@ -272,10 +226,6 @@ module.exports.update=async function(req,res)
   
   User.splashUser(user);
   await updateData(dbList,req,res)
-  
-
-  // return res.redirect('back')
-  // console.log(user,'this is user *****')
 }
 
 module.exports.profile=function(req,res)

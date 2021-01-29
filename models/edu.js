@@ -13,14 +13,9 @@ const formSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    yearOfStart:
-    {
-        type:Date,
-        required:true
-    },
     endYear:
     {
-        type:Date,
+        type:Number,
         required:true
     },
     fieldOfStudy:

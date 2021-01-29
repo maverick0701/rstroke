@@ -35,10 +35,15 @@ const userSchema = new mongoose.Schema({
       type:mongoose.Schema.Types.ObjectId,
       ref:'proForm'
     },
-    project:[{
+    achievement:{
       type:mongoose.Schema.Types.ObjectId,
       ref:'projForm'
-    }]
+    },
+    skill:
+    {
+      type:mongoose.Schema.Types.ObjectId,
+      ref:'skillForm'
+    }
 }, {
     timestamps: true
 });
@@ -65,15 +70,6 @@ let storage = multer.diskStorage({
             
     }
     var i=0;
-    // while(i<user[0].experience.length)
-    // {
-    //   user[0].experience.pop();
-    // }
-    //var i=0;
-    // while(i<user[0].project.length)
-    // {
-    //   user[0].project.pop();
-    // }
     user[0].save();
   }
 

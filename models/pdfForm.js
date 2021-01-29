@@ -10,6 +10,11 @@ const formSchema = new mongoose.Schema({
         type: Boolean,
         required: true
     },
+    skill:
+    {
+        type: Boolean,
+        required: true
+    },
     aboutme: {
         type: Boolean,
         required: true
@@ -18,7 +23,7 @@ const formSchema = new mongoose.Schema({
         type:Boolean,
         required:true
     },
-    project:{
+    achievement:{
         type:Boolean,
         required:true
     },

@@ -34,9 +34,27 @@
             <input type="number" name="phone" id=""><br>
             <label for="location">Location</label><br>
             <input type="text" name="location"><br>
-        
-            <%} else if(key!='education'){%>
+            <label for="link">Link</label><br>
+            <input type="text" name="link" placeholder="Link">
+            <%} else if(key!='education' && key!='skill'){%>
         <textarea name=<%=key%> class='txtar'></textarea>
+            <%}else if(key=='skill'){%>
+            <label for="skill1">Skill1</label><br>
+            <input type="text" name="skill1"><br>
+            <label for="skill2">Skill2</label><br>
+            <input type="text" name="skill2"><br>
+            <label for="skill3">Skill3</label><br>
+            <input type="text" name="skill3"><br>
+            <label for="skill4">Skill4</label><br>
+            <input type="text" name="skill4"><br>
+            <label for="skill5">Skill5</label><br>
+            <input type="text" name="skill5"><br>
+            <label for="skill6">Skill6</label><br>
+            <input type="text" name="skill6">
+            <label for="skill7">Skill7</label>
+            <input type="text" name="skill7"><br>
+
+
         <%}else{%>
             <div id='eduForm'>
                 <div class='eduItem'>
@@ -45,10 +63,8 @@
             <input type="text" name="school" id=""><br>
             <label for="LOCschool">Location of school</label><br>
             <input type="text" name="LOCschool" id=""><br>
-            <label for="Sdate">Date</label><br>
-            <input type="date" name="Sdate"><br>
-            <label for="Edate">End Date</label><br>
-            <input type="date" name="Edate"><br>
+            <label for="Edate">Graduation Year</label><br>
+            <input type="number" name="Edate"><br>
             <label for="foe">Field Of Study</label><br>
             <input type="text" name="foe"><br>
             <label for="grade">CGPA</label><br>
@@ -60,10 +76,8 @@
                 <input type="text" name="school" id=""><br>
                 <label for="LOCschool">Location of school</label><br>
                 <input type="text" name="LOCschool" id=""><br>
-                <label for="Sdate">Date</label><br>
-                <input type="date" name="Sdate"><br>
-                <label for="Edate">End Date</label><br>
-                <input type="date" name="Edate"><br>
+                <label for="Edate">Graduation Year</label><br>
+                <input type="number" name="Edate"><br>
                 <label for="foe">Field Of Study</label><br>
                 <input type="text" name="foe"><br>
                 <label for="grade">CGPA</label><br>

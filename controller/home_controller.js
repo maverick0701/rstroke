@@ -30,13 +30,7 @@ function lzw_decode(s) {
     return out.join("");
   }
 module.exports.home=function(req,res){
-    // console.log('*******',__dirname);
-    // path1= `${path.join(__dirname,'..' ,'fileStorage')}`;
-    // console.log(path1);
-    // Form.findOne({id:1},function(err,form)
-    // {
-    //     console.log(form.numTrue);
-    // })
+
     return res.render('_homePage.ejs');
 }
 
@@ -78,9 +72,6 @@ module.exports.create = function(req, res){
 
 module.exports.destroySession = function(req, res){
     req.logout();
-    // req.flash('success', 'You have logged out!');
-
-
     return res.redirect('/');
 } 
 
@@ -96,7 +87,6 @@ keyOperation=(keys,form)=>{
     keys.splice(id2,1);
     let id3= keys.indexOf("numTrue");
     keys.splice(id3,1);
-    // console.log(keys);
     var newKey=new Array();
     keys.forEach((key,index)=>
     {
@@ -106,8 +96,6 @@ keyOperation=(keys,form)=>{
             newKey.push(key);
         }
     })
-    
-    // console.log(keys,'this is key 3');
     keys=newKey;
    return keys;
 }
@@ -120,8 +108,6 @@ module.exports.third= async function(req,res)
     let allKeys = Object.keys(form._doc);
     let numTrue=form.numTrue;
     keys=await keyOperation(keys,form);
-    // console.log(form._doc);
-    // console.log(keys,'this is keys');
     return res.render('_thirdPage.ejs',{
         form:form,
         keys:keys,
@@ -149,13 +135,26 @@ module.exports.upload=async function(req,res)
     return res.redirect('back');
 }
 
-module.exports.resume=function(req,res)
+module.exports.resume=async function(req,res)
 {
-    let user2=req.params.user;
-  
-    user2=lzw_decode(user2);
-    user3=JSON.parse(user2);
-    res.render('_fourth.ejs',{
-        user1:user3
+    user2=await User.findById(req.params.id)
+    .populate({
+      path:'profile',
+      select:'profile'
+    })
+    .populate('abMe','aboutMe')
+    .populate({
+      path:'education'
+    })
+    .populate({
+      path:'achievement',
+      select:'achievement'
+    })
+    .populate({
+      path:'experience'
+    })
+    .populate('skill');
+    return res.render('_fourth.ejs',{
+        user1:user2
     })
 }

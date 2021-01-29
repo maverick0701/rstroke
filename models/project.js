@@ -5,7 +5,7 @@ const formSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'
     },
-    project: {
+    achievement: {
         type: String,
         required: true
     }
@@ -20,7 +20,6 @@ formSchema.statics.clear=async function(user)
     {
         return;
     }
-    // console.log(edu,'hello1');
     var arr=new Array();
     edu.forEach((obj)=>{
         arr.push(obj.id);
