@@ -147,18 +147,21 @@ module.exports.resume=async function(req,res)
       path:'education'
     })
     .populate({
-        path:'language'
-    })
-    .populate({
       path:'achievement',
       select:'achievement'
     })
     .populate({
       path:'experience'
     })
-    .populate('skill');
-    console.log(user2.language[0].language);
-    return res.render('_fourth.ejs',{
-        user1:user2
+    .populate('skill')
+    .populate({
+        path:'language'
     })
+    .then((user2)=>{
+        // console.log(user2.language)
+        return res.render('_fourth.ejs',{
+            user1:user2
+        })
+    })
+    
 }
