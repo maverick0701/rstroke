@@ -15,7 +15,7 @@ const formSchema = new mongoose.Schema({
 formSchema.statics.clear=async function(user)
 {
     var edu=new Array();
-    edu=await projForm.find({id:user});
+    edu=await achForm.find({id:user});
     if(!edu)
     {
         return;
@@ -26,7 +26,7 @@ formSchema.statics.clear=async function(user)
     })
     arr.forEach((id)=>
     {
-        projForm.remove({id:id},(err)=>
+        achForm.remove({id:id},(err)=>
         {
             if(err)
             {
@@ -39,6 +39,6 @@ formSchema.statics.clear=async function(user)
     
     
 }
-const projForm= mongoose.model('projForm', formSchema);
+const achForm= mongoose.model('achForm', formSchema);
 
-module.exports = projForm;
+module.exports = achForm;

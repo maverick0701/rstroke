@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema({
     },
     achievement:{
       type:mongoose.Schema.Types.ObjectId,
-      ref:'projForm'
+      ref:'achForm'
     },
     skill:
     {

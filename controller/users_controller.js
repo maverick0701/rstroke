@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const edu=require('../models/edu');
 const exp=require('../models/exp');
-const Achievement=require('../models/project');
+const Achievement=require('../models/acheivement');
 const Profile=require('../models/profile');
 const abbbMe=require('../models/abMe');
 const skill=require('../models/skill');
