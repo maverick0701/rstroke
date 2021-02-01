@@ -44,6 +44,10 @@ const userSchema = new mongoose.Schema({
       type:mongoose.Schema.Types.ObjectId,
       ref:'skillForm'
     },
+    project:[{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:'projForm'
+    }],
     language:[{
       type:mongoose.Schema.Types.ObjectId,
       ref:'lanForm'
@@ -77,6 +81,12 @@ let storage = multer.diskStorage({
     while(i<user[0].language.length)
     {
         user[0].language.pop();
+        
+    }
+    var i=0;
+    while(i<user[0].project.length)
+    {
+        user[0].project.pop();
         
     }
     user[0].save();
