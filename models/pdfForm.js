@@ -31,6 +31,10 @@ const formSchema = new mongoose.Schema({
         type:Boolean,
         required:true
     },
+    language:
+    {
+        type:Boolean
+    },
     numTrue:{
         type:Number,
         required:true

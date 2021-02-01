@@ -137,6 +137,7 @@ module.exports.upload=async function(req,res)
 
 module.exports.resume=async function(req,res)
 {
+    console.log('here');
     user2=await User.findById(req.params.id)
     .populate({
       path:'profile',
@@ -154,6 +155,7 @@ module.exports.resume=async function(req,res)
       path:'experience'
     })
     .populate('skill');
+    
     return res.render('_fourth.ejs',{
         user1:user2
     })

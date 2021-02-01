@@ -5,6 +5,7 @@ const Achievement=require('../models/project');
 const Profile=require('../models/profile');
 const abbbMe=require('../models/abMe');
 const skill=require('../models/skill');
+const lang=require('../models/lan');
 const Form=require('../models/pdfForm');
 const fs = require('fs');
 const Path = require('path');
@@ -15,7 +16,41 @@ const todays_date = new Date();
 require('dotenv').config({ path:Path.join(__dirname,'..','env','one.env')});
 updateData=async function(dbList,req,res)
 {
-  let Promise1,Promise2,Promise3,Promise4,Promise5,Promise6;
+  let Promise1,Promise2,Promise3,Promise4,Promise5,Promise6,Promise7;
+  if(req.body.language)
+  {
+    await lang.clear(req.user.id);
+    Promise7=new Promise((resolve,reject)=>
+    {
+     
+     
+      for(let i=0;i<req.body.language.length;i++)
+      {
+        // console.log(i);
+        lang.create({
+          id:req.user.id,
+          language:req.body.language[i]
+        },(err,lang)=>
+        {
+          // console.log(lang);
+          User.findById(req.user.id,(err,user)=>
+          {
+            // console.log(user);
+            user.language.push(lang._id);
+            user.save()
+            .then(()=>{
+              // console.log(i);
+              if(i==req.body.language.length-1)
+              {
+                console.log('here  here')
+                resolve();
+              }
+            })
+          })
+        })
+      }
+    })
+  }
   if(req.body.skill1)
   {
     Promise6=new Promise((resolve,reject)=>
@@ -185,7 +220,7 @@ updateData=async function(dbList,req,res)
 
     })
   }
- Promise.all([Promise1,Promise2,Promise3,Promise4,Promise5,Promise6])
+ Promise.all([Promise1,Promise2,Promise3,Promise4,Promise5,Promise6,Promise7])
  .then(async ()=>
   {
         const browser = await puppeteer.launch();
