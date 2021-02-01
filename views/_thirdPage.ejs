@@ -39,7 +39,7 @@
             <input type="text" name="location"><br>
             <label for="link">Link</label><br>
             <input type="text" name="link" placeholder="Link">
-            <%} else if(key!='education' && key!='skill' && key!='language'){%>
+            <%} else if(key!='education' && key!='skill' && key!='language' && key!='project'){%>
         <textarea name=<%=key%> class='txtar'></textarea>
             <%}else if(key=='skill'){%>
             
@@ -61,6 +61,12 @@
             <input type="text" name="language" placeholder="lan1">
             <input type="text" name="language" placeholder="lan2">
             <input type="text" name="language" placeholder="lan3">
+            <%}else if(key=='project'){%>
+                <input type="text" name="project" id="" placeholder="title"><br><br>
+                <textarea name='projectContent' ></textarea><br><br>
+                <input type="text" name="project" id="" placeholder="title"><br><br>
+                <textarea name='projectContent' ></textarea>
+                
         <%}else{%>
             <div id='eduForm'>
                 <div class='eduItem'>
