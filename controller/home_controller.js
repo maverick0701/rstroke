@@ -154,11 +154,12 @@ module.exports.resume=async function(req,res)
       path:'experience'
     })
     .populate('skill')
+    .populate('project')
     .populate({
         path:'language'
     })
     .then((user2)=>{
-        // console.log(user2.language)
+        console.log(user2.project)
         return res.render('_fourth.ejs',{
             user1:user2
         })
