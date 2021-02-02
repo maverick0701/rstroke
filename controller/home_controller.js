@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Form=require('../models/pdfForm');
+const proj=require('../models/project');
 const puppeteer = require("puppeteer");
 const fs = require('fs');
 const path = require('path');
@@ -146,7 +147,7 @@ module.exports.resume=async function(req,res)
     .populate({
       path:'education'
     })
-    
+    .populate('project')
     .populate({
       path:'achievement',
       select:'achievement'
@@ -159,10 +160,19 @@ module.exports.resume=async function(req,res)
         path:'language'
     })
     .then((user2)=>{
+        user2.password=null;
+        user2.email=null;
         console.log(user2.language)
-        return res.render('_fourth.ejs',{
-            user1:user2
-        })
+        setTimeout(()=>{
+                res.render('_fourth.ejs',{
+                user1:user2
+            })
+        },0)
+        
+
+
+        
     })
+    
     
 }

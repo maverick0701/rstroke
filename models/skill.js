@@ -27,7 +27,7 @@ const formSchema = new mongoose.Schema({
     {
         type:String
     },
-    Skill7:
+    skill7:
     {
         type:String
     }
