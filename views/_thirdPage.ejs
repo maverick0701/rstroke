@@ -1,115 +1,124 @@
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Details</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous"> -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+<script src="https://kit.fontawesome.com/91fe8d7d40.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <link rel="stylesheet" href="/css/form.css">
+<link rel="stylesheet" href="/css/home2.css">
+<i class="fas fa-sign-out-alt logout-icon"></i>
+<div class="container">
+    <div class="outer-box">
+        <div class="inner-box">
+            <form action="">
+                <ul class="collapsible popout">
+                    <li>
+                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Personal Info</div>
+                        <div class="collapsible-body">Pariatur et labore magna laboris consequat eu labore sunt exercitation incididunt laboris.Et ullamco consequat quis ea do.Et dolor ex quis duis exercitation.Consequat occaecat voluptate culpa ea minim cillum laboris dolore dolore.</div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="fab fa-pushed"></i>School</div>
+                        <div class="collapsible-body"><span>Nisi id veniam quis laborum ad aliqua aliquip non Lorem. Ipsum eiusmod aliquip ipsum sint aliquip est non laboris voluptate fugiat excepteur laborum. Voluptate mollit culpa fugiat est. Irure irure duis culpa consectetur dolore deserunt.
 
+Irure dolore et laborum adipisicing veniam. Ex quis do enim non deserunt deserunt. Consectetur cupidatat elit cupidatat sit irure ullamco Lorem magna commodo. Adipisicing aliqua Lorem veniam enim ut magna. Ut reprehenderit id dolor et veniam nisi officia.</span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="fab fa-pushed"></i>University</div>
+                        <div class="collapsible-body"><span>Pariatur eiusmod culpa tempor est esse et aute duis in non. Proident commodo sit do non. Id aliqua cupidatat sint in elit dolor veniam velit veniam anim Lorem nisi anim. Minim magna ex eu consequat exercitation ad laborum. Ullamco occaecat in culpa incididunt proident culpa nostrud qui sunt minim sunt reprehenderit.
 
-<div id='timeLine'>
-<% for (var i =1; i <=numTrue;  i++ ) { %>
-        <div class="circle" id=`circle-<%=i%>`></div>
-    <% } %>
-</div>
+Consequat culpa nulla reprehenderit occaecat quis exercitation irure irure sunt consectetur. Nostrud amet mollit excepteur minim excepteur fugiat incididunt cupidatat minim qui occaecat sit. Excepteur occaecat cillum occaecat cupidatat magna consequat nulla veniam. In non enim ad pariatur dolore velit non occaecat. Ad occaecat proident veniam in esse nisi exercitation excepteur consectetur reprehenderit. Amet dolor cillum ex dolor aliqua. Nisi cillum proident qui sint excepteur velit id elit.
 
-<div id='box'>
-    <form action="/users/update/" method="POST">
-<%keys.forEach((key,index)=>{%>
-    
-    <%if(index==0){%>
-        <div  class='con' id="divs">
-    <%}else{%>
-        <div class="setDisplayNone" id="divs">
-    <%}%>
-    <div class="header">
-        <%if(key=='Past_Experience'){%>
-            <h1>Details</h1>
-            <%}else if(key=='profile'){%>
-                <h1>Additional Information</h1>
-            <%}else{%>
-        <h1><%=key%></h1>
-        <%}%>
-    </div>
-    <div class="formDetail">
-        <%if(key=='Past_Experience'){%>
-            <label for="name">Name</label><br>
-            <input type="text" name="name" id=""><br>
-            <label for="position">Position</label><br>
-            <input type="text" name="job" id=""><br>
-            <label for="email">Email</label><br>
-            <input type="text" name="email"><br>
-            <label for="phone">Phone</label><br>
-            <input type="number" name="phone" id=""><br>
-            <label for="location">Location</label><br>
-            <input type="text" name="location"><br>
-            <label for="link">Link</label><br>
-            <input type="text" name="link" placeholder="Link">
-            <%} else if(key!='education' && key!='skill' && key!='language' && key!='project'){%>
-        <textarea name=<%=key%> class='txtar'></textarea>
-            <%}else if(key=='skill'){%>
-            
-            <label for="skill1">Skill1</label><br>
-            <input type="text" name="skill1"><br>
-            <label for="skill2">Skill2</label><br>
-            <input type="text" name="skill2"><br>
-            <label for="skill3">Skill3</label><br>
-            <input type="text" name="skill3"><br>
-            <label for="skill4">Skill4</label><br>
-            <input type="text" name="skill4"><br>
-            <label for="skill5">Skill5</label><br>
-            <input type="text" name="skill5"><br>
-            <label for="skill6">Skill6</label><br>
-            <input type="text" name="skill6">
-            <label for="skill7">Skill7</label>
-            <input type="text" name="skill7"><br>
-            <%}else if(key=='language'){%>
-            <input type="text" name="language" placeholder="lan1">
-            <input type="text" name="language" placeholder="lan2">
-            <input type="text" name="language" placeholder="lan3">
-            <%}else if(key=='project'){%>
-                <input type="text" name="project" id="" placeholder="title"><br><br>
-                <textarea name='projectContent' ></textarea><br><br>
-                <input type="text" name="project" id="" placeholder="title"><br><br>
-                <textarea name='projectContent' ></textarea>
-                
-        <%}else{%>
-            <div id='eduForm'>
-                <div class='eduItem'>
-            <i class="fas fa-plus"></i><br>
-            <label for="school">School</label><br>
-            <input type="text" name="school" id=""><br>
-            <label for="LOCschool">Location of school</label><br>
-            <input type="text" name="LOCschool" id=""><br>
-            <label for="Edate">Graduation Year</label><br>
-            <input type="number" name="Edate"><br>
-            <label for="foe">Field Of Study</label><br>
-            <input type="text" name="foe"><br>
-            <label for="grade">CGPA</label><br>
-            <input type="number" name="grade">
-            </div>
-            <div class='eduItem'>
-                <i class="fas fa-plus"></i><br>
-                <label for="school">School</label><br>
-                <input type="text" name="school" id=""><br>
-                <label for="LOCschool">Location of school</label><br>
-                <input type="text" name="LOCschool" id=""><br>
-                <label for="Edate">Graduation Year</label><br>
-                <input type="number" name="Edate"><br>
-                <label for="foe">Field Of Study</label><br>
-                <input type="text" name="foe"><br>
-                <label for="grade">CGPA</label><br>
-            <input type="number" name="grade">
-                </div>
+Est esse est sit proident consequat in quis non. Anim velit esse proident sit velit aliqua enim mollit amet eu dolore incididunt ullamco dolore. Id sint amet pariatur nulla id laboris esse et magna occaecat magna fugiat non. In aute magna consequat tempor deserunt dolore dolore veniam. Ex et eiusmod elit nostrud magna est consequat fugiat sint.
+
+Cupidatat minim non nostrud velit veniam. Amet excepteur excepteur veniam irure esse mollit ad. Adipisicing est cillum velit ex enim irure officia laborum velit est elit.
+
+Fugiat ad nulla enim anim eiusmod fugiat ut. Esse officia amet irure laboris nisi duis et id voluptate eiusmod laborum incididunt. Consequat tempor eu exercitation ad consectetur commodo occaecat excepteur. Aliquip laboris occaecat nostrud et quis ea sint.
+
+Minim enim eiusmod et laboris incididunt dolor. Sit esse anim duis incididunt proident veniam sint. Mollit sint labore amet velit adipisicing esse voluptate eu sit exercitation pariatur sit velit laboris. Qui sit duis aliquip sint sit exercitation dolore ad reprehenderit dolor mollit ut et. Adipisicing cupidatat commodo magna exercitation do.</span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Summary</div>
+                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Project</div>
+                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Skills</div>
+                        <div class="collapsible-body"><span>Eu pariatur mollit in ullamco commodo. Et excepteur consequat labore duis eiusmod deserunt laborum. Voluptate culpa sint veniam nisi. Voluptate ex voluptate sit amet ad enim Lorem dolore aliqua veniam veniam anim laborum. Dolor nostrud fugiat tempor velit elit id consectetur culpa esse aliquip nisi veniam. Occaecat id non anim ex irure duis ipsum esse elit proident velit irure voluptate velit. Ad commodo cupidatat aliquip exercitation ex ullamco.
+
+Aliquip eu enim Lorem occaecat. Pariatur elit commodo excepteur dolore consectetur. Adipisicing sint velit amet sit. Non ullamco nisi labore aute id occaecat pariatur et magna dolor do aliquip aliqua.</span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Additional Info</div>
+                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                </ul>
+            </form>
         </div>
-            <%}%>
     </div>
-    </div> 
-    <%})%>
-    <button type="submit" id="next" >Next</button>
-    <button type="submit" id="sub" disabled>Submit</button> 
-    <button type="submit" id="prev" disabled>Previous</button>
-    </form>
-    
-   
+</div>
+<footer class="footer1">
+    <div class="gen-info">
+      <p class="copyright-txt">Copyright © 2020. All rights reserved.</p>
+    </div>
+    <div class="contact-info">
+      <button type="button" class="btn-contact" data-toggle="modal" data-target="#ContactUsModal">
+        Contact-Us
+      </button>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="ContactUsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Contact-Us</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span id="cross-btn" aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="conatct-modal">
+          <div class="inner-body">
+            <div class="maddy-info">
+              <h6>Madhav Anand</h6>
+              +91 8210112958<br>
+              <a href="https://www.linkedin.com/in/yash-ray-cri80vt/" target="_blank"><i class="fab fa-linkedin ctus"></i></a>
+              <a href="https://github.com/Yash-Ray" target="_blank"><i class="fab fa-github-square ctus"></i></a>
+              <a href="mailto:ray.yash.08@gmail.com" target="_blank"><i class="fas fa-envelope-square ctus"></i></a>
+              <a href="https://www.instagram.com/yashray_08/" target="_blank"><i class="fab fa-instagram-square ctus"></i></a>
+              <a href="https://drive.google.com/file/d/10q3O4x8DIylfMtnPuUTQLc2_WGMEN3KH/view?usp=sharing" download target="_blank"><i class="fas fa-file-pdf ctus pdf1"></i></a>
+            </div>
+            <div class="ray-info">
+              <h6>Yash Ray</h6>
+              +91 8210112958<br>
+              <a href="https://www.linkedin.com/in/yash-ray-cri80vt/" target="_blank"><i class="fab fa-linkedin ctus"></i></a>
+              <a href="https://github.com/Yash-Ray" target="_blank"><i class="fab fa-github-square ctus"></i></a>
+              <a href="mailto:ray.yash.08@gmail.com" target="_blank"><i class="fas fa-envelope-square ctus"></i></a>
+              <a href="https://www.instagram.com/yashray_08/" target="_blank"><i class="fab fa-instagram-square ctus"></i></a>
+              <a href="https://drive.google.com/file/d/10q3O4x8DIylfMtnPuUTQLc2_WGMEN3KH/view?usp=sharing" download target="_blank"><i class="fas fa-file-pdf ctus pdf1"></i></a>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
 </div>
 
-
-<script src="/js/form.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
 <script>
-     new formCarousel(`<%=numTrue%>`);
+        $(document).ready(function() {
+$('.collapsible').collapsible();
+})
+
 </script>

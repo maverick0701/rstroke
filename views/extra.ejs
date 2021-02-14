@@ -1,0 +1,112 @@
+<!-- <div id='timeLine'>
+    <% for (var i =1; i <=numTrue;  i++ ) { %>
+        <div class="circle" id=`circle-<%=i%>`></div>
+    <% } %>
+</div>
+
+<div id='box'>
+    <form action="/users/update/" method="POST">
+<%keys.forEach((key,index)=>{%>
+    
+    <%if(index==0){%>
+        <div  class='con' id="divs">
+    <%}else{%>
+        <div class="setDisplayNone" id="divs">
+    <%}%>
+    <div class="header">
+        <%if(key=='Past_Experience'){%>
+            <h1>Details</h1>
+            <%}else if(key=='profile'){%>
+                <h1>Additional Information</h1>
+            <%}else{%>
+        <h1><%=key%></h1>
+        <%}%>
+    </div>
+    <div class="formDetail">
+        <%if(key=='Past_Experience'){%>
+            <label for="name">Name</label><br>
+            <input type="text" name="name" id=""><br>
+            <label for="position">Position</label><br>
+            <input type="text" name="job" id=""><br>
+            <label for="email">Email</label><br>
+            <input type="text" name="email"><br>
+            <label for="phone">Phone</label><br>
+            <input type="number" name="phone" id=""><br>
+            <label for="location">Location</label><br>
+            <input type="text" name="location"><br>
+            <label for="link">Link</label><br>
+            <input type="text" name="link" placeholder="Link">
+            <%} else if(key!='education' && key!='skill' && key!='language' && key!='project'){%>
+        <textarea name=<%=key%> class='txtar'></textarea>
+            <%}else if(key=='skill'){%>
+            
+            <label for="skill1">Skill1</label><br>
+            <input type="text" name="skill1"><br>
+            <label for="skill2">Skill2</label><br>
+            <input type="text" name="skill2"><br>
+            <label for="skill3">Skill3</label><br>
+            <input type="text" name="skill3"><br>
+            <label for="skill4">Skill4</label><br>
+            <input type="text" name="skill4"><br>
+            <label for="skill5">Skill5</label><br>
+            <input type="text" name="skill5"><br>
+            <label for="skill6">Skill6</label><br>
+            <input type="text" name="skill6">
+            <label for="skill7">Skill7</label>
+            <input type="text" name="skill7"><br>
+            <%}else if(key=='language'){%>
+            <input type="text" name="language" placeholder="lan1">
+            <input type="text" name="language" placeholder="lan2">
+            <input type="text" name="language" placeholder="lan3">
+            <%}else if(key=='project'){%>
+                <input type="text" name="project" id="" placeholder="title"><br><br>
+                <textarea name='projectContent' ></textarea><br><br>
+                <input type="text" name="project" id="" placeholder="title"><br><br>
+                <textarea name='projectContent' ></textarea>
+                
+        <%}else{%>
+            <div id='eduForm'>
+                <div class='eduItem'>
+            <i class="fas fa-plus"></i><br>
+            <label for="school">School</label><br>
+            <input type="text" name="school" id=""><br>
+            <label for="LOCschool">Location of school</label><br>
+            <input type="text" name="LOCschool" id=""><br>
+            <label for="Edate">Graduation Year</label><br>
+            <input type="number" name="Edate"><br>
+            <label for="foe">Field Of Study</label><br>
+            <input type="text" name="foe"><br>
+            <label for="grade">CGPA</label><br>
+            <input type="number" name="grade">
+            </div>
+            <div class='eduItem'>
+                <i class="fas fa-plus"></i><br>
+                <label for="school">School</label><br>
+                <input type="text" name="school" id=""><br>
+                <label for="LOCschool">Location of school</label><br>
+                <input type="text" name="LOCschool" id=""><br>
+                <label for="Edate">Graduation Year</label><br>
+                <input type="number" name="Edate"><br>
+                <label for="foe">Field Of Study</label><br>
+                <input type="text" name="foe"><br>
+                <label for="grade">CGPA</label><br>
+            <input type="number" name="grade">
+                </div>
+        </div>
+            <%}%>
+    </div>
+    </div> 
+    <%})%>
+    <button type="submit" id="next" >Next</button>
+    <button type="submit" id="sub" disabled>Submit</button> 
+    <button type="submit" id="prev" disabled>Previous</button>
+    </form>
+    
+   
+</div>
+
+
+<script src="/js/form.js"></script>
+<script>
+     new formCarousel(`<%=numTrue%>`);
+</script> -->
