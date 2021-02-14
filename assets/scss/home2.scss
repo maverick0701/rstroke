@@ -11,7 +11,11 @@
 .modal-header {
     border-bottom: 1px solid #212121;
 }
-
+.modal {
+    background-color: transparent;
+    height: 100%;
+    box-shadow: none;
+}
 .modal-body {
     margin:auto;
 }
@@ -111,4 +115,7 @@ h6 {
 }
 .pdf1 {
     font-size: 27.8px;
+}
+.modal .modal-content {
+    padding: 0px;
 }
