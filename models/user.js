@@ -1,97 +1,145 @@
-const mongoose=require('mongoose');
-const multer = require('multer');
-const path = require('path');
-const AVATAR_PATH = path.join('/uploads/users/avatars');
-const userSchema = new mongoose.Schema({
+const mongoose = require("mongoose");
+const multer = require("multer");
+const path = require("path");
+const AVATAR_PATH = path.join("/uploads/users/avatars");
+// const userSchema = new mongoose.Schema(
+//   {
+//     email: {
+//       type: String,
+//       required: true,
+//       unique: true,
+//     },
+//     password: {
+//       type: String,
+//       required: true,
+//     },
+//     name: {
+//       type: String,
+//       required: true,
+//     },
+//     avatar: {
+//       type: String,
+//     },
+//     education: [
+//       {
+//         type: mongoose.Schema.Types.ObjectId,
+//         ref: "eduForm",
+//       },
+//     ],
+//     abMe: {
+//       type: mongoose.Schema.Types.ObjectId,
+//       ref: "meForm",
+//     },
+//     experience: {
+//       type: mongoose.Schema.Types.ObjectId,
+//       ref: "expForm",
+//     },
+//     profile: {
+//       type: mongoose.Schema.Types.ObjectId,
+//       ref: "proForm",
+//     },
+//     achievement: {
+//       type: mongoose.Schema.Types.ObjectId,
+//       ref: "achForm",
+//     },
+//     skill: {
+//       type: mongoose.Schema.Types.ObjectId,
+//       ref: "skillForm",
+//     },
+//     project: [
+//       {
+//         type: mongoose.Schema.Types.ObjectId,
+//         ref: "projForm",
+//       },
+//     ],
+//     language: [
+//       {
+//         type: mongoose.Schema.Types.ObjectId,
+//         ref: "lanForm",
+//       },
+//     ],
+//   },
+//   {
+//     timestamps: true,
+//   }
+// );
+const userSchema = new mongoose.Schema(
+  {
     email: {
-        type: String,
-        required: true,
-        unique: true
+      type: String,
+      required: true,
+      unique: true,
     },
     password: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     name: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     avatar: {
-        type: String
+      type: String,
     },
-    education:[{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'eduForm'
-    }],
-    abMe:{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'meForm'
+    education: [
+      {
+        type: String,
+      },
+    ],
+    abMe: {
+      type: String,
     },
-    experience:{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'expForm'
+    experience: {
+      type: String,
     },
-    profile:{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'proForm'
+    profile: {
+      type: String,
     },
-    achievement:{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'achForm'
+    achievement: {
+      type: String,
     },
-    skill:
-    {
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'skillForm'
+    skill: {
+      type: String,
     },
-    project:[{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'projForm'
-    }],
-    language:[{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'lanForm'
-    }]
-}, {
-    timestamps: true
-});
-
-
-let storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, path.join(__dirname, '..', AVATAR_PATH));
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now());
-    }
-  });
-//for statics
-  userSchema.statics.uploadedAvatar = multer({storage:  storage}).single('avatar');
-  userSchema.statics.avatarPath = AVATAR_PATH;
-  userSchema.statics.splashUser=(user)=>
+    project: [
+      {
+        type: String,
+      },
+    ],
+    language: [
+      {
+        type: String,
+      },
+    ],
+  },
   {
-    var i=0;
-   
-    while(i<user[0].education.length)
-    {
-        user[0].education.pop();
-        i++;
-    }
-    var i=0;
-    while(i<user[0].language.length)
-    {
-        user[0].language.pop();
-        i++;
-    }
-    var i=0;
-    while(i<user[0].project.length)
-    {
-        user[0].project.pop();
-        i++;
-    }
-    user[0].save();
+    timestamps: true,
   }
+);
+let storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, "..", AVATAR_PATH));
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + "-" + Date.now());
+  },
+});
+//for statics
+userSchema.statics.uploadedAvatar = multer({ storage: storage }).single(
+  "avatar"
+);
+userSchema.statics.avatarPath = AVATAR_PATH;
+userSchema.statics.splashUser = (user) => {
+  var i = 0;
+  user.education.length = 0;
+  user.language.length = 0;
+  user.project.length = 0;
+  user.save().then(() => {
+    // console.log(user);
+    return;
+  });
+};
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
