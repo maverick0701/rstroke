@@ -86,7 +86,12 @@ const userSchema = new mongoose.Schema(
         type: String,
       },
     ],
-    abMe: {
+    skill: [
+      {
+        type: String,
+      },
+    ],
+    aboutme: {
       type: String,
     },
     experience: {
@@ -96,9 +101,6 @@ const userSchema = new mongoose.Schema(
       type: String,
     },
     achievement: {
-      type: String,
-    },
-    skill: {
       type: String,
     },
     project: [
