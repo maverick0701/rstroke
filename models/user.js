@@ -2,67 +2,6 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
 const AVATAR_PATH = path.join("/uploads/users/avatars");
-// const userSchema = new mongoose.Schema(
-//   {
-//     email: {
-//       type: String,
-//       required: true,
-//       unique: true,
-//     },
-//     password: {
-//       type: String,
-//       required: true,
-//     },
-//     name: {
-//       type: String,
-//       required: true,
-//     },
-//     avatar: {
-//       type: String,
-//     },
-//     education: [
-//       {
-//         type: mongoose.Schema.Types.ObjectId,
-//         ref: "eduForm",
-//       },
-//     ],
-//     abMe: {
-//       type: mongoose.Schema.Types.ObjectId,
-//       ref: "meForm",
-//     },
-//     experience: {
-//       type: mongoose.Schema.Types.ObjectId,
-//       ref: "expForm",
-//     },
-//     profile: {
-//       type: mongoose.Schema.Types.ObjectId,
-//       ref: "proForm",
-//     },
-//     achievement: {
-//       type: mongoose.Schema.Types.ObjectId,
-//       ref: "achForm",
-//     },
-//     skill: {
-//       type: mongoose.Schema.Types.ObjectId,
-//       ref: "skillForm",
-//     },
-//     project: [
-//       {
-//         type: mongoose.Schema.Types.ObjectId,
-//         ref: "projForm",
-//       },
-//     ],
-//     language: [
-//       {
-//         type: mongoose.Schema.Types.ObjectId,
-//         ref: "lanForm",
-//       },
-//     ],
-//   },
-//   {
-//     timestamps: true,
-//   }
-// );
 const userSchema = new mongoose.Schema(
   {
     email: {
@@ -83,34 +22,40 @@ const userSchema = new mongoose.Schema(
     },
     education: [
       {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "eduForm",
       },
     ],
-    skill: [
-      {
-        type: String,
-      },
-    ],
-    aboutme: {
-      type: String,
+    abMe: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "meForm",
     },
     experience: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "expForm",
     },
     profile: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "proForm",
     },
     achievement: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "achForm",
+    },
+    skill: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "skillForm",
     },
     project: [
       {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "projForm",
       },
     ],
     language: [
       {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "lanForm",
       },
     ],
   },
@@ -118,6 +63,61 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+// const userSchema = new mongoose.Schema(
+//   {
+//     email: {
+//       type: String,
+//       required: true,
+//       unique: true,
+//     },
+//     password: {
+//       type: String,
+//       required: true,
+//     },
+//     name: {
+//       type: String,
+//       required: true,
+//     },
+//     avatar: {
+//       type: String,
+//     },
+//     education: [
+//       {
+//         type: String,
+//       },
+//     ],
+//     skill: [
+//       {
+//         type: String,
+//       },
+//     ],
+//     aboutme: {
+//       type: String,
+//     },
+//     experience: {
+//       type: String,
+//     },
+//     profile: {
+//       type: String,
+//     },
+//     achievement: {
+//       type: String,
+//     },
+//     project: [
+//       {
+//         type: String,
+//       },
+//     ],
+//     language: [
+//       {
+//         type: String,
+//       },
+//     ],
+//   },
+//   {
+//     timestamps: true,
+//   }
+// );
 let storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, path.join(__dirname, "..", AVATAR_PATH));
@@ -137,7 +137,7 @@ userSchema.statics.splashUser = (user) => {
   user.language.length = 0;
   user.project.length = 0;
   user.save().then(() => {
-    // console.log(user);
+    console.log(user, "in line no 140");
     return;
   });
 };
