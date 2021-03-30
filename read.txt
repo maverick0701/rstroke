@@ -797,3 +797,19 @@ module.exports.resume = async function (req, res) {
       }, 0);
     });
 };
+
+// formSchema.statics.clearExp = async function (user) {
+//   var exp = new Array();
+//   exp = await expForm.find({ id: user });
+//   var arr = new Array();
+//   exp.forEach((obj) => {
+//     arr.push(obj.id);
+//   });
+//   arr.forEach((id) => {
+//     expForm.remove({ id: id }, (err) => {
+//       if (err) {
+//         console.log(err, "error at line 52***");
+//       }
+//     });
+//   });
+// };

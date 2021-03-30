@@ -36,12 +36,14 @@ module.exports.resume = async function (req, res) {
 
     keys.forEach((key) => {
       user[key] = [];
+      keyToDb(key).clear(req.user);
+
       keyToDb(key).create(
         {
           id: req.user,
         },
         (err, db) => {
-          console.log(err);
+          console.log("created");
           newForm[key].forEach((elem) => {
             db[elem] = req.body[elem];
           });

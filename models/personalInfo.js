@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { resolve } = require("path");
 
 const formSchema = new mongoose.Schema(
   {
@@ -29,20 +30,20 @@ const formSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-formSchema.statics.clearExp = async function (user) {
-  var exp = new Array();
-  exp = await expForm.find({ id: user });
-  var arr = new Array();
-  exp.forEach((obj) => {
-    arr.push(obj.id);
-  });
-  arr.forEach((id) => {
-    expForm.remove({ id: id }, (err) => {
-      if (err) {
-        console.log(err, "error at line 52***");
-      }
+
+formSchema.statics.clear = (userId) => {
+  personalInfo.find({ id: userId }, (err, docs) => {
+    docs.forEach((doc) => {
+      personalInfo.findByIdAndDelete(doc._id, function (err, docs2) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Deleted : ");
+        }
+      });
     });
   });
+  return;
 };
 
 const personalInfo = mongoose.model("personalInfo", formSchema);
