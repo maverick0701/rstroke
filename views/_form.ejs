@@ -8,7 +8,8 @@
       <div class="collapsible-body">
         <%form[key].forEach((element)=>{%>
         <label for="<%=element%>">
-          <%=element.charAt(0).toUpperCase()+ element.slice(1)%>
+          <%=(element.charAt(0).toUpperCase()+
+          element.slice(1)).split("_").join(" ")%>
         </label>
         <br />
         <input type="text" name="<%=element%>" id="" />
