@@ -1,201 +1,46 @@
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Details</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+/>
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous"> -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<link
+  href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+  integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+  crossorigin="anonymous"
+/>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+  crossorigin="anonymous"
+></script>
 <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
-<script src="https://kit.fontawesome.com/91fe8d7d40.js" crossorigin="anonymous"></script>
+<script
+  src="https://kit.fontawesome.com/91fe8d7d40.js"
+  crossorigin="anonymous"
+></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<link rel="stylesheet" href="/css/form.css">
-<link rel="stylesheet" href="/css/home2.css">
+<link rel="stylesheet" href="/css/form.css" />
+<link rel="stylesheet" href="/css/home2.css" />
 <i class="fas fa-sign-out-alt logout-icon"></i>
+
 <div class="container">
-    <div class="outer-box">
-        <div class="inner-box">
-          <form action="/users/update/" method="POST">
-                <ul class="collapsible popout">
-                    <li>
-                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Personal Info</div>
-                        <div class="collapsible-body">
-                            <label for="name">Name</label><br>
-                                <input type="text" name="name" id=""><br>
-                                <label for="position">Position</label><br>
-                                <input type="text" name="job" id=""><br>
-                                <label for="email">Email</label><br>
-                                <input type="text" name="email"><br>
-                                <label for="phone">Phone</label><br>
-                                <input type="number" name="phone" id=""><br>
-                                <label for="location">Location</label><br>
-                                <input type="text" name="location"><br>
-                                <label for="link">Link</label><br>
-                                <input type="text" name="link" placeholder="Link">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="fab fa-pushed"></i>School</div>
-                        <div class="collapsible-body">
-                            <label for="school">School</label><br>
-                                <input type="text" name="school" id=""><br>
-                                <label for="LOCschool">Location of school</label><br>
-                                <input type="text" name="LOCschool" id=""><br>
-                                <label for="Edate">Graduation Year</label><br>
-                                <input type="number" name="Edate"><br>
-                                <label for="foe">Field Of Study</label><br>
-                                <input type="text" name="foe"><br>
-                                <label for="grade">CGPA</label><br>
-                                <input type="number" name="grade">
- 
-
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="fab fa-pushed"></i>University</div>
-                        <div class="collapsible-body">
-                            <label for="school">School</label><br>
-                                    <input type="text" name="school" id=""><br>
-                                    <label for="LOCschool">Location of school</label><br>
-                                    <input type="text" name="LOCschool" id=""><br>
-                                    <label for="Edate">Graduation Year</label><br>
-                                    <input type="number" name="Edate"><br>
-                                    <label for="foe">Field Of Study</label><br>
-                                    <input type="text" name="foe"><br>
-                                    <label for="grade">CGPA</label><br>
-                                    <input type="number" name="grade">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Summary</div>
-                        <div class="collapsible-body">
-                            <textarea name='aboutme'>
-                            </textarea>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Project</div>
-                        <div class="collapsible-body">
-                            <label  style="color: aliceblue;">Title</label>
-                            <input type="text" name="project" id="" placeholder="title"><br>
-                            <label  style="color: aliceblue;">Discription</label>
-                            <textarea name='projectContent' ></textarea><br><br>
-                            <label  style="color: aliceblue;">Title</label>
-                            <input type="text" name="project" id="" placeholder="title"><br>
-                            <label  style="color: aliceblue;">Discription</label>
-                            <textarea name='projectContent' ></textarea>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Skills</div>
-                        <div class="collapsible-body">
-                            <label for="skill1">Skill 1</label><br>
-                        <input type="text" name="skill1"><br>
-                        <label for="skill2">Skill 2</label><br>
-                        <input type="text" name="skill2"><br>
-                        <label for="skill3">Skill 3</label><br>
-                        <input type="text" name="skill3"><br>
-                        <label for="skill4">Skill 4</label><br>
-                        <input type="text" name="skill4"><br>
-                        <label for="skill5">Skill 5</label><br>
-                        <input type="text" name="skill5"><br>
-                        <label for="skill6">Skill 6</label><br>
-                        <input type="text" name="skill6">
-                        <label for="skill7">Skill 7</label>
-                        <input type="text" name="skill7"><br>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Additional Info</div>
-                        <div class="collapsible-body">
-                            <textarea name='profile'>
-                            </textarea>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Language</div>
-                        <div class="collapsible-body">
-                                <label>Language </label><br>
-                               <input type="text" name="language" placeholder="lan1">
-                               <label>Language </label><br>
-                                <input type="text" name="language" placeholder="lan2">
-                                <label>Language </label><br>
-                                <input type="text" name="language" placeholder="lan3">
-                        </div>
-                    </li>
-                    <li>
-                      <div class="collapsible-header"><i class="fab fa-pushed"></i>Achievment</div>
-                      <div class="collapsible-body">
-                        <textarea name='achievment'>
-                        </textarea>
-                      </div>
-                  </li>
-                  <li>
-                    <div class="collapsible-header"><i class="fab fa-pushed"></i><button type="submit">Submit</button> </div>
-            
-                </li>
-                    
-                </ul>
-                
-            </form>
-        </div>
-    </div>
+  <div class="outer-box">
+    <div class="inner-box"><%-include('_form.ejs')%></div>
+  </div>
 </div>
-<footer class="footer1">
-    <div class="gen-info">
-      <p class="copyright-txt">Copyright © 2020. All rights reserved.</p>
-    </div>
-    <div class="contact-info">
-      <button type="button" class="btn-contact" data-toggle="modal" data-target="#ContactUsModal">
-        Contact-Us
-      </button>
-    </div>
-  </footer>
-
-  <div class="modal fade" id="ContactUsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Contact-Us</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span id="cross-btn" aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="conatct-modal">
-          <div class="inner-body">
-            <div class="maddy-info">
-              <h6>Madhav Anand</h6>
-              +91 8210112958<br>
-              <a href="https://www.linkedin.com/in/yash-ray-cri80vt/" target="_blank"><i class="fab fa-linkedin ctus"></i></a>
-              <a href="https://github.com/Yash-Ray" target="_blank"><i class="fab fa-github-square ctus"></i></a>
-              <a href="mailto:ray.yash.08@gmail.com" target="_blank"><i class="fas fa-envelope-square ctus"></i></a>
-              <a href="https://www.instagram.com/yashray_08/" target="_blank"><i class="fab fa-instagram-square ctus"></i></a>
-              <a href="https://drive.google.com/file/d/10q3O4x8DIylfMtnPuUTQLc2_WGMEN3KH/view?usp=sharing" download target="_blank"><i class="fas fa-file-pdf ctus pdf1"></i></a>
-            </div>
-            <div class="ray-info">
-              <h6>Yash Ray</h6>
-              +91 8210112958<br>
-              <a href="https://www.linkedin.com/in/yash-ray-cri80vt/" target="_blank"><i class="fab fa-linkedin ctus"></i></a>
-              <a href="https://github.com/Yash-Ray" target="_blank"><i class="fab fa-github-square ctus"></i></a>
-              <a href="mailto:ray.yash.08@gmail.com" target="_blank"><i class="fas fa-envelope-square ctus"></i></a>
-              <a href="https://www.instagram.com/yashray_08/" target="_blank"><i class="fab fa-instagram-square ctus"></i></a>
-              <a href="https://drive.google.com/file/d/10q3O4x8DIylfMtnPuUTQLc2_WGMEN3KH/view?usp=sharing" download target="_blank"><i class="fas fa-file-pdf ctus pdf1"></i></a>
-            </div>
-          </div>
-          
-        </div>
-        
-      </div>
-    </div>
-</div>
-
-<script type="text/javascript" src="js/materialize.min.js"></script>
-<script>
-        $(document).ready(function() {
-$('.collapsible').collapsible();
-})
-
-</script>
+<%-include('_footer.ejs')%>

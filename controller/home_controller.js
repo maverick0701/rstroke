@@ -1,6 +1,6 @@
 const User = require("../models/user");
 const Form = require("../models/pdfForm");
-const proj = require("../models/project");
+// const proj = require("../models/project");
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 const path = require("path");
@@ -56,33 +56,10 @@ module.exports.destroySession = function (req, res) {
 };
 
 module.exports.second = function (req, res) {
+  // Form.create({
+  //   id: 1,
+  // });
   return res.render("_secondPage.ejs");
-};
-
-// keyOperation = (keys, form) => {
-//   let id1 = keys.indexOf("_id");
-//   keys.splice(id1, 1);
-//   let id2 = keys.indexOf("id");
-//   keys.splice(id2, 1);
-//   let id3 = keys.indexOf("numTrue");
-//   keys.splice(id3, 1);
-//   var newKey = new Array();
-//   keys.forEach((key, index) => {
-//     if (form[key] != false) {
-//       newKey.push(key);
-//     }
-//   });
-//   keys = newKey;
-//   return keys;
-// };
-
-module.exports.third = async function (req, res) {
-  Form.findOne({ id: 1 }, (err, form) => {
-    let keys = Object.keys(form._doc);
-    return res.render("_thirdPage.ejs", {
-      keys: keys,
-    });
-  });
 };
 
 module.exports.upload = async function (req, res) {
@@ -132,4 +109,28 @@ module.exports.resume = async function (req, res) {
         });
       }, 0);
     });
+};
+
+module.exports.third = async function (req, res) {
+  Form.findOne({ id: 1 }, (err, form) => {
+    let newForm = form._doc;
+    delete newForm._id;
+    delete newForm.id;
+    delete newForm.numTrue;
+    let keys = new Array();
+    let title = {};
+
+    for (var prop in newForm) {
+      keys.push(prop);
+      let heading = prop.charAt(0).toUpperCase() + prop.slice(1);
+      title[prop] = heading.split("_").join(" ");
+    }
+
+    return res.render("_thirdPage.ejs", {
+      keys: keys,
+      form: newForm,
+      title: title,
+      formId: 1,
+    });
+  });
 };

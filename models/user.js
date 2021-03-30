@@ -17,45 +17,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    avatar: {
-      type: String,
-    },
-    education: [
+    Personal_Information: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "eduForm",
-      },
-    ],
-    abMe: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "meForm",
-    },
-    experience: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "expForm",
-    },
-    profile: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "proForm",
-    },
-    achievement: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "achForm",
-    },
-    skill: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "skillForm",
-    },
-    project: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "projForm",
-      },
-    ],
-    language: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "lanForm",
+        ref: "personalInfo",
       },
     ],
   },

@@ -1,7 +1,7 @@
 * {
   padding: 0px;
   margin: 0px;
-  font-family: 'Montserrat', sans-serif; }
+  font-family: "Montserrat", sans-serif; }
 
 .main-page {
   margin: 0px;
@@ -36,7 +36,7 @@
   margin-left: 50px;
   letter-spacing: 5px;
   font-size: 75px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   /* border: 2px dashed darkorchid; */
   text-transform: uppercase;
@@ -73,7 +73,8 @@
   margin-bottom: 15px;
   /* border: 1px solid red; */ }
 
-.contact-head, .skills-head {
+.contact-head,
+.skills-head {
   text-align: center;
   padding: 15px;
   padding-left: 30px;
@@ -87,7 +88,10 @@
   padding-top: 15px;
   /* align-items: center; */ }
 
-.mail, .ph-num, .linked-in, .location {
+.mail,
+.ph-num,
+.linked-in,
+.location {
   display: flex;
   flex-direction: row;
   margin: 15px;
@@ -102,7 +106,10 @@ a {
   display: inline-block;
   overflow-wrap: break-word; }
 
-.mail-value, .ph-num-value, .location-value, .linkedin-value {
+.mail-value,
+.ph-num-value,
+.location-value,
+.linkedin-value {
   display: flex;
   /* width: 100%; */
   justify-content: center;
@@ -111,7 +118,10 @@ a {
   font-weight: 600;
   font-size: 17px; }
 
-.mail-icon, .ph-num-icon, .linkedin-icon, .location-icon {
+.mail-icon,
+.ph-num-icon,
+.linkedin-icon,
+.location-icon {
   /* border: 2px solid red; */
   display: flex;
   align-items: center;
@@ -125,7 +135,9 @@ i {
 .skills {
   padding-bottom: 10px; }
 
-.skills-head, .lang-head, .add-info-head {
+.skills-head,
+.lang-head,
+.add-info-head {
   text-align: left;
   padding: 0px auto;
   font-weight: 700;
@@ -211,49 +223,3 @@ i {
   padding: 0px 30px;
   /* border: 2px solid red; */
   font-weight: 500; }
-
-ul {
-  list-style: inside; }
-
-.std12 {
-  margin-top: 10px; }
-
-.std12-name {
-  font-weight: 700; }
-
-.std12-detail {
-  padding: 0px 30px;
-  font-weight: 500; }
-
-.works {
-  margin-top: 10px;
-  text-align: justify; }
-
-.work-head {
-  padding-bottom: 10px;
-  margin: 0px 0px 10px 0px;
-  font-size: 22px;
-  font-weight: 700;
-  text-transform: uppercase;
-  border-bottom: 2px solid darkgray; }
-
-.work-body {
-  padding-bottom: 10px; }
-
-.work-name {
-  padding: 5px 0px;
-  font-weight: 700; }
-
-.work-detail {
-  padding-left: 30px; }
-
-.achievement-head {
-  padding-bottom: 10px;
-  margin: 0px 0px 10px 0px;
-  font-size: 22px;
-  font-weight: 700;
-  text-transform: uppercase;
-  border-bottom: 2px solid darkgray; }
-
-.achievement-body {
-  text-align: justify; }

@@ -1,0 +1,31 @@
+<form action="/users/resume/" method="POST">
+  <ul class="collapsible popout">
+    <%keys.forEach((key)=>{%>
+    <li>
+      <div class="collapsible-header">
+        <i class="fab fa-pushed"></i><%=title[key]%>
+      </div>
+      <div class="collapsible-body">
+        <%form[key].forEach((element)=>{%>
+        <label for="<%=element%>">
+          <%=element.charAt(0).toUpperCase()+ element.slice(1)%>
+        </label>
+        <br />
+        <input type="text" name="<%=element%>" id="" />
+        <br />
+        <%})%>
+      </div>
+    </li>
+    <%})%>
+    <div class="collapsible-header">
+      <input
+        type="number"
+        style="display: none"
+        name="formId"
+        value="<%=formId%>"
+        disabled
+      />
+      <i class="fab fa-pushed"></i><button type="submit">Submit</button>
+    </div>
+  </ul>
+</form>

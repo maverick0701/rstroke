@@ -283,3 +283,517 @@ const lang = require("../models/lan");
 //       console.log("reject");
 //     });
 // };
+
+<div class="main-page">
+    <div class="top">
+        <h1 class="Applicant_name"><%=user1.experience.name%></h1>
+        <div class="post">
+            <h3 class="Applicant_post"><%=user1.experience.job%></h3>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="left">
+            <div class="contact">
+                <!-- <div class="contact-head">
+                    <span>Contact:</span>
+                </div> -->
+                <div class="contact-body">
+                    <div class="mail">
+                        <div class="mail-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="mail-value" style="overflow-wrap: break-word;"><%=user1.experience.name%></div>
+                    </div>
+                    <div class="ph-num">
+                        <div class="ph-num-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="ph-num-value"><%=user1.experience.phone%></div>
+                    </div>
+                    <div class="linked-in">
+                        <div class="linkedin-icon"><i class="fab fa-linkedin-in"></i></div>
+                        <div class="linkedin-value"><%=user1.experience.link%></div>
+                    </div>
+                    <div class="location">
+                        <div class="location-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="location-value"><%=user1.experience.location%></div>
+                    </div>                       
+                                            
+                </div>
+            </div>
+            <div class="skills">
+                <div class="skills-head">
+                    <span>Skills</span>
+                </div>
+                <div class="skills-body">
+                    <div class="skill1 skill"><%=user1.skill.skill1%></div>
+                    <div class="skill2 skill"><%=user1.skill.skill2%></div>
+                    <div class="skill3 skill"><%=user1.skill.skill3%></div>
+                    <div class="skill4 skill"><%=user1.skill.skill4%></div>
+                    <div class="skill5 skill"><%=user1.skill.skill5%></div>
+                    <div class="skill6 skill"><%=user1.skill.skill6%></div>
+                    <div class="skill7 skill"><%=user1.skill.skill7%></div>
+                </div>
+            </div>
+            <div class="languages">
+                <div class="lang-head">
+                    <span>Languages Known</span>
+                </div>
+                <div class="skills-body">
+                    <div class="skill1 skill"><%=user1.language[0].language%></div>
+                    <div class="skill2 skill"><%=user1.language[1].language%></div>
+                    <div class="skill3 skill"><%=user1.language[2].language%></div>
+                </div>
+            </div>
+            <div class="additional-info">
+                <div class="add-info-head">
+                    Additional Information
+                </div>
+                <div class="add-info-body">
+                    <%=user1.profile.profile%>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="summary">
+                <div class="summary-head">
+                    Resume Objective
+                </div>
+                <div class="summary-body">
+                    <span class="summary-content"><%=user1.abMe.aboutMe%></span>
+                </div>
+            </div>
+            <div class="education">
+                <div class="education-head">
+                    Education
+                </div>
+                
+                <div class="education-body">
+                    <%for(let i of user1.education){%>
+                    <div class="college">
+                        <div class="college-name">
+                            <%=i.School%>
+                        </div>
+                        <div class="college-detail">
+                            <ul>
+                                <li>Year of Graduation: <%=parseInt(i.endYear)%></li>
+                                <li>Subjects Studied: <%=i.fieldOfStudy%></li>
+                                <li>Current CGPA:<%=i.grade%></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <%}%>
+                    
+                </div>
+            </div>
+            <div class="works">
+                <div class="work-head">
+                    Work Experience / Projects
+                </div>
+                <div class="work-body">
+                    <%user1.project.forEach((project)=>{%>
+                    <div class="work">
+                        <div class="work-name">
+                            <%=project.title%>
+                            
+                        </div>
+                        <div class="work-detail">
+                            <%=project.project%>
+                        </div>
+                    </div>
+                    <%})%>
+                    
+                </div>
+            </div>
+            <div class="achievements">
+                <div class="achievement-head">
+                    Achievements
+                </div>
+                <div class="achievement-body">
+                    <%=user1.achievement.achievement%>                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <li>
+                        <div class="collapsible-header"><i class="fab fa-pushed"></i>School</div>
+                        <div class="collapsible-body">
+                            <label for="school">School</label><br>
+                                <input type="text" name="school" id=""><br>
+                                <label for="LOCschool">Location of school</label><br>
+                                <input type="text" name="LOCschool" id=""><br>
+                                <label for="Edate">Graduation Year</label><br>
+                                <input type="number" name="Edate"><br>
+                                <label for="foe">Field Of Study</label><br>
+                                <input type="text" name="foe"><br>
+                                <label for="grade">CGPA</label><br>
+                                <input type="number" name="grade">
+ 
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="fab fa-pushed"></i>University</div>
+                        <div class="collapsible-body">
+                            <label for="school">School</label><br>
+                                    <input type="text" name="school" id=""><br>
+                                    <label for="LOCschool">Location of school</label><br>
+                                    <input type="text" name="LOCschool" id=""><br>
+                                    <label for="Edate">Graduation Year</label><br>
+                                    <input type="number" name="Edate"><br>
+                                    <label for="foe">Field Of Study</label><br>
+                                    <input type="text" name="foe"><br>
+                                    <label for="grade">CGPA</label><br>
+                                    <input type="number" name="grade">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Summary</div>
+                        <div class="collapsible-body">
+                            <textarea name='aboutme'>
+                            </textarea>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Project</div>
+                        <div class="collapsible-body">
+                            <label  style="color: aliceblue;">Title</label>
+                            <input type="text" name="project" id="" placeholder="title"><br>
+                            <label  style="color: aliceblue;">Discription</label>
+                            <textarea name='projectContent' ></textarea><br><br>
+                            <label  style="color: aliceblue;">Title</label>
+                            <input type="text" name="project" id="" placeholder="title"><br>
+                            <label  style="color: aliceblue;">Discription</label>
+                            <textarea name='projectContent' ></textarea>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Skills</div>
+                        <div class="collapsible-body">
+                            <label for="skill1">Skill 1</label><br>
+                        <input type="text" name="skill1"><br>
+                        <label for="skill2">Skill 2</label><br>
+                        <input type="text" name="skill2"><br>
+                        <label for="skill3">Skill 3</label><br>
+                        <input type="text" name="skill3"><br>
+                        <label for="skill4">Skill 4</label><br>
+                        <input type="text" name="skill4"><br>
+                        <label for="skill5">Skill 5</label><br>
+                        <input type="text" name="skill5"><br>
+                        <label for="skill6">Skill 6</label><br>
+                        <input type="text" name="skill6">
+                        <label for="skill7">Skill 7</label>
+                        <input type="text" name="skill7"><br>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Additional Info</div>
+                        <div class="collapsible-body">
+                            <textarea name='profile'>
+                            </textarea>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="fab fa-pushed"></i>Language</div>
+                        <div class="collapsible-body">
+                                <label>Language </label><br>
+                               <input type="text" name="language" placeholder="lan1">
+                               <label>Language </label><br>
+                                <input type="text" name="language" placeholder="lan2">
+                                <label>Language </label><br>
+                                <input type="text" name="language" placeholder="lan3">
+                        </div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="fab fa-pushed"></i>Achievment</div>
+                      <div class="collapsible-body">
+                        <textarea name='achievment'>
+                        </textarea>
+                      </div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header"><i class="fab fa-pushed"></i><button type="submit">Submit</button> </div>
+            
+                </li> -->
+
+updateData = async function (req, res) {
+//   let Promise1,
+//     Promise2,
+//     Promise3,
+//     Promise4,
+//     Promise5,
+//     Promise6,
+//     Promise7,
+//     Promise8;
+//   if (req.body.project) {
+//     await proj.clear(req.user.id);
+//     Promise8 = new Promise((resolve, reject) => {
+//       for (let i = 0; i < req.body.project.length; i++) {
+//         proj.create(
+//           {
+//             id: req.user.id,
+//             title: req.body.project[i],
+//             project: req.body.projectContent[i],
+//           },
+//           (err, proj) => {
+//             User.findById(req.user.id, (err, user) => {
+//               user.project.push(proj._id);
+//               user.save().then(() => {
+//                 if (i == req.body.project.length - 1) {
+//                   resolve();
+//                 }
+//               });
+//             });
+//           }
+//         );
+//       }
+//     });
+//   }
+//   if (req.body.language) {
+//     await lang.clear(req.user.id);
+//     Promise7 = new Promise((resolve, reject) => {
+//       for (let i = 0; i < req.body.language.length; i++) {
+//         // console.log(i);
+//         lang.create(
+//           {
+//             id: req.user.id,
+//             language: req.body.language[i],
+//           },
+//           (err, lang) => {
+//             // console.log(lang);
+//             User.findById(req.user.id, (err, user) => {
+//               // console.log(user);
+//               user.language.push(lang._id);
+//               user.save().then(() => {
+//                 // console.log(i);
+//                 if (i == req.body.language.length - 1) {
+//                   console.log("here  here");
+//                   resolve();
+//                 }
+//               });
+//             });
+//           }
+//         );
+//       }
+//     });
+//   }
+//   if (req.body.skill1) {
+//     Promise6 = new Promise((resolve, reject) => {
+//       skill.create(
+//         {
+//           id: req.user.id,
+//           skill1: req.body.skill1,
+//           skill2: req.body.skill2,
+//           skill3: req.body.skill3,
+//           skill4: req.body.skill4,
+//           skill5: req.body.skill5,
+//           skill6: req.body.skill6,
+//           skill7: req.body.skill7,
+//         },
+//         (error, skill) => {
+//           User.findById(req.user.id, (err, user) => {
+//             user.skill = skill._id;
+//             user.save().then(resolve());
+//           });
+//         }
+//       );
+//     });
+//   }
+//   if (req.body.name) {
+//     await personalInfo.clearExp(req.user._id);
+//     Promise5 = new Promise((resolve, reject) => {
+//       personalInfo.create(
+//         {
+//           id: req.user.id,
+//           name: req.body.name,
+//           email: req.body.email,
+//           phone: req.body.phone,
+//           job: req.body.job,
+//           location: req.body.location,
+//           link: req.body.link,
+//         },
+//         (err, exp1) => {
+//           if (err) {
+//             console.log(err, "error in exp");
+//           }
+//           User.findById(req.user.id, (err, user) => {
+//             user.experience = exp1._id;
+//             user.save().then(resolve());
+//           });
+//         }
+//       );
+//     });
+//   }
+//   if (req.body.achievement) {
+//     await Achievement.clear(req.user._id);
+//     Promise4 = new Promise((resolve, reject) => {
+//       Achievement.create(
+//         {
+//           id: req.user.id,
+//           achievement: req.body.achievement,
+//         },
+//         (err, proj) => {
+//           User.findById(req.user.id, (err, user) => {
+//             user.achievement = proj._id;
+//             user.save().then(resolve());
+//           });
+//         }
+//       );
+//     });
+//   }
+//   if (req.body.aboutme) {
+//     await abbbMe.clearAbme(req.user._id);
+//     Promise1 = new Promise((resolve, reject) => {
+//       abbbMe.create(
+//         {
+//           id: req.user.id,
+//           aboutMe: req.body.aboutme.trim(),
+//         },
+//         (err, abbMe) => {
+//           if (err) {
+//             reject();
+//           }
+//           User.findById(req.user.id, (err, user) => {
+//             if (err) {
+//               reject();
+//             }
+//             user.abMe = abbMe._id;
+//             user.save().then(() => {
+//               resolve();
+//             });
+//           });
+//         }
+//       );
+//     });
+//   }
+
+//   if (req.body.profile) {
+//     await Profile.clear(req.user._id);
+//     Promise2 = new Promise((resolve, reject) => {
+//       Profile.create(
+//         {
+//           id: req.user.id,
+//           profile: req.body.profile,
+//         },
+//         (err, prof) => {
+//           User.findById(req.user.id, (err, user) => {
+//             user.profile = prof._id;
+//             user.save().then(() => {
+//               resolve();
+//             });
+//           });
+//         }
+//       );
+//     });
+//   }
+//   if (req.body.school[0] != "") {
+//     user.education.length = 0;
+//     Promise3 = new Promise((resolve, reject) => {
+//       for (let i = 0; i < req.body.school.length; i++) {
+//         edu.create(
+//           {
+//             id: req.user._id,
+//             School: req.body.school[i],
+//             LocationOfSchool: req.body.LOCschool[i],
+//             endYear: req.body.Edate[i],
+//             fieldOfStudy: req.body.foe[i],
+//             grade: req.body.grade[i],
+//           },
+//           (err, edd) => {
+//             User.findById(req.user.id, (err, user) => {
+//               user.education.push(edd._id);
+//               if (err) {
+//                 reject();
+//               }
+//               user.save().then(() => {
+//                 if (i == req.body.school.length - 1) {
+//                   resolve();
+//                 }
+//               });
+//             });
+//           }
+//         );
+//       }
+//     });
+//   }
+//   Promise.all([
+//     Promise1,
+//     Promise2,
+//     Promise3,
+//     Promise4,
+//     Promise5,
+//     Promise6,
+//     Promise7,
+//     Promise8,
+//   ])
+//     .then(async () => {
+//       const browser = await puppeteer.launch();
+//       const page = await browser.newPage();
+//       await page.goto(process.env.pdfUrl + req.user.id, {
+//         waitUntil: "networkidle2",
+//       });
+//       await page.setViewport({ width: 1680, height: 1050 });
+//       const pdfUrl = `${Path.join(
+//         __dirname,
+//         "..",
+//         "fileStorage",
+//         todays_date.getTime() + ".pdf"
+//       )}`;
+//       const Pdf = await page.pdf({
+//         path: pdfUrl,
+//         format: "A4",
+//         printBackground: true,
+//       });
+
+//       await browser.close();
+
+//       await res.set({
+//         "Content-Type": "application/pdf",
+//         "Content-Length": Pdf.length,
+//       });
+//       await res.sendFile(pdfUrl);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       console.log("reject");
+//     });
+// };
+
+// module.exports.update = async function (req, res) {
+//   user = req.user;
+//   User.splashUser(user);
+
+//   updateData(req, res);
+// };
+
+module.exports.resume = async function (req, res) {
+  user2 = await User.findById(req.params.id)
+    .populate({
+      path: "profile",
+      select: "profile",
+    })
+    .populate("abMe", "aboutMe")
+    .populate({
+      path: "education",
+    })
+    .populate("project")
+    .populate({
+      path: "achievement",
+      select: "achievement",
+    })
+    .populate({
+      path: "experience",
+    })
+    .populate("skill")
+    .populate({
+      path: "language",
+    })
+    .then((user2) => {
+      user2.password = null;
+      user2.email = null;
+      console.log(user2.language);
+      setTimeout(() => {
+        res.render("_fourth.ejs", {
+          user1: user2,
+        });
+      }, 0);
+    });
+};
