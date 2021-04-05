@@ -5,6 +5,10 @@ const puppeteer = require("puppeteer");
 const { compile, localsName } = require("ejs");
 const { resolve } = require("path");
 const Personal_Information = require("../models/personalInfo");
+const Education = require("../models/education");
+const University = require("../models/university");
+const Skill = require("../models/skill");
+const Language = require("../models/language");
 const todays_date = new Date();
 require("dotenv").config({
   path: Path.join(__dirname, "..", "env", "one.env"),
@@ -18,12 +22,40 @@ module.exports.profile = function (req, res) {
   });
 };
 keyToDb = (key) => {
+  // console.log(key, "key");
   if (key == "Personal_Information") {
     return Personal_Information;
   }
+  if (key == "Education") {
+    return Education;
+  }
+  if (key == "University") {
+    return University;
+  }
+  if (key == "Skill") {
+    return Skill;
+  }
+  if (key == "Language") {
+    return Language;
+  }
 };
+async function handleDb(keys, req, user, newForm) {
+  let i = 0;
+  console.log(req.body.language_2);
+  keys.forEach(async (key) => {
+    await keyToDb(key).clear(req.user);
+    let db = await keyToDb(key).create({
+      id: req.user,
+    });
+    newForm[key].forEach((elem) => {
+      db[elem] = req.body[elem];
+    });
+
+    db.save();
+  });
+}
 module.exports.resume = async function (req, res) {
-  Form.findOne({ id: 1 }, (err, form) => {
+  Form.findOne({ id: 1 }, async (err, form) => {
     let user = req.user;
     let newForm = form._doc;
     delete newForm._id;
@@ -33,27 +65,7 @@ module.exports.resume = async function (req, res) {
     for (var prop in newForm) {
       keys.push(prop);
     }
-
-    keys.forEach((key) => {
-      user[key] = [];
-      keyToDb(key).clear(req.user);
-
-      keyToDb(key).create(
-        {
-          id: req.user,
-        },
-        (err, db) => {
-          console.log("created");
-          newForm[key].forEach((elem) => {
-            db[elem] = req.body[elem];
-          });
-          db.save().then(() => {
-            user[key].push(db._id);
-            user.save();
-          });
-        }
-      );
-    });
+    handleDb(keys, req, user, newForm);
     return res.render("_fourth.ejs");
   });
 };

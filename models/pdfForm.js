@@ -7,7 +7,12 @@ const formSchema = new mongoose.Schema({
   },
   Personal_Information: {
     type: Array,
-    unique: true,
+  },
+  Education: {
+    type: Array,
+  },
+  University: {
+    type: Array,
   },
 });
 

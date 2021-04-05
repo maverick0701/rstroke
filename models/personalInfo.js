@@ -31,14 +31,14 @@ const formSchema = new mongoose.Schema(
   }
 );
 
-formSchema.statics.clear = (userId) => {
+formSchema.statics.clear = async (userId) => {
   personalInfo.find({ id: userId }, (err, docs) => {
     docs.forEach((doc) => {
       personalInfo.findByIdAndDelete(doc._id, function (err, docs2) {
         if (err) {
           console.log(err);
         } else {
-          console.log("Deleted : ");
+          // console.log("Deleted : ");
         }
       });
     });

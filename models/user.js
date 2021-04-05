@@ -17,12 +17,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    Personal_Information: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "personalInfo",
-      },
-    ],
   },
   {
     timestamps: true,
@@ -96,7 +90,7 @@ userSchema.statics.uploadedAvatar = multer({ storage: storage }).single(
   "avatar"
 );
 userSchema.statics.avatarPath = AVATAR_PATH;
-userSchema.statics.splashUser = (user) => {
+userSchema.statics.splashUser = async (user) => {
   var i = 0;
   user.education.length = 0;
   user.language.length = 0;
