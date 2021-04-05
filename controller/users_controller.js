@@ -9,6 +9,9 @@ const Education = require("../models/education");
 const University = require("../models/university");
 const Skill = require("../models/skill");
 const Language = require("../models/language");
+const Additional_information = require("../models/additionalInformation");
+const Experiece = require("../models/workExperience");
+const Achievement = require("../models/achievement");
 const todays_date = new Date();
 require("dotenv").config({
   path: Path.join(__dirname, "..", "env", "one.env"),
@@ -38,10 +41,18 @@ keyToDb = (key) => {
   if (key == "Language") {
     return Language;
   }
+  if (key == "Additional_information") {
+    return Additional_information;
+  }
+  if (key == "Work_experience/Project") {
+    return Experiece;
+  }
+  if (key == "Achievement") {
+    return Achievement;
+  }
 };
 async function handleDb(keys, req, user, newForm) {
   let i = 0;
-  console.log(req.body.language_2);
   keys.forEach(async (key) => {
     await keyToDb(key).clear(req.user);
     let db = await keyToDb(key).create({
