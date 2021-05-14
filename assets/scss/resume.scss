@@ -224,3 +224,54 @@ i {
   /* border: 2px solid red; */
   font-weight: 500;
 }
+ul {
+  list-style: inside;
+}
+.std12 {
+  margin-top: 10px;
+}
+.std12-name {
+  font-weight: 700;
+}
+.std12-detail {
+  padding: 0px 30px;
+  font-weight: 500;
+}
+.works {
+  margin-top: 10px;
+  text-align: justify;
+}
+.work-head {
+  padding-bottom: 10px;
+  margin: 0px 0px 10px 0px;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 2px solid darkgray;
+}
+.work-body {
+  padding-bottom: 10px;
+}
+.work-name {
+  padding: 5px 0px;
+  font-weight: 700;
+}
+.work-detail {
+  padding-left: 30px;
+}
+.achievement-head {
+  padding-bottom: 10px;
+  margin: 0px 0px 10px 0px;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 2px solid darkgray;
+}
+.achievement-body {
+  text-align: justify;
+}
+
+.change-color {
+  background-color: rgb(0, 183, 255);
+  color: black;
+}

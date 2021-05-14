@@ -25,6 +25,9 @@ const formSchema = new mongoose.Schema(
     link: {
       type: String,
     },
+    RESUME_OBJECTIVE: {
+      type: String,
+    },
   },
   {
     timestamps: true,

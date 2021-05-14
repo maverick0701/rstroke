@@ -17,7 +17,7 @@ const formSchema = new mongoose.Schema({
   programme_name: {
     type: String,
   },
-  current_cgpagpa: {
+  current_cgpa: {
     type: String,
   },
 });
