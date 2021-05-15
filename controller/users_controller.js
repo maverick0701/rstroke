@@ -180,7 +180,7 @@ module.exports.resume = async function (req, res) {
           skills = skill;
         });
         await getPersonalInfo(req.user).then(function (infos) {
-          // console.log(infos);
+          console.log(infos);
           info = infos;
         });
         await getLan(req.user)

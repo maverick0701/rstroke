@@ -12,7 +12,11 @@
           element.slice(1)).split("_").join(" ")%>
         </label>
         <br />
-        <textarea type="text" name="<%=element%>" id=""></textarea>
+        <textarea
+          type="text"
+          name="<%=element%>"
+          id="element<%=element%>"
+        ></textarea>
         <br />
         <%})%>
       </div>
@@ -26,7 +30,10 @@
         value="<%=formId%>"
         disabled
       />
-      <i class="fab fa-pushed"></i><button type="submit">Submit</button>
+      <i class="fab fa-pushed"></i
+      ><button type="submit" id="finalSub">Submit</button>
     </div>
   </ul>
 </form>
+
+<script src="/js/form2.js"></script>
