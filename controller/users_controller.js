@@ -150,6 +150,34 @@ async function getAch(user) {
   return ach[0];
 }
 
+async function makePdf(req, res) {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto(process.env.pdfUrl + req.user.id, {
+    waitUntil: "networkidle2",
+  });
+  await page.setViewport({ width: 1680, height: 1050 });
+  const pdfUrl = `${Path.join(
+    __dirname,
+    "..",
+    "fileStorage",
+    todays_date.getTime() + ".pdf"
+  )}`;
+  const Pdf = await page.pdf({
+    path: pdfUrl,
+    format: "A4",
+    printBackground: true,
+  });
+
+  await browser.close();
+
+  await res.set({
+    "Content-Type": "application/pdf",
+    "Content-Length": Pdf.length,
+  });
+  await res.sendFile(pdfUrl);
+}
+
 async function getUnivInfo(user) {
   let univ = await University.find({ id: user });
   while (
@@ -173,49 +201,92 @@ module.exports.resume = async function (req, res) {
     for (var prop in newForm) {
       keys.push(prop);
     }
-    let skills, info, lang, addInfo, edu, univ, exp, ach;
-    handleDb(keys, req, user, newForm)
-      .then(async function () {
-        await getSkill(req.user).then((skill) => {
-          skills = skill;
-        });
-        await getPersonalInfo(req.user).then(function (infos) {
-          console.log(infos);
-          info = infos;
-        });
-        await getLan(req.user)
-          .then(req.user)
-          .then(function (lan) {
-            lang = lan;
-          });
-        await getAddInfo(req.user).then((addInfos) => {
-          addInfo = addInfos;
-        });
-        await getUnivInfo(req.user).then(function (univInfo) {
-          univ = univInfo;
-        });
-        await getEduForm(req.user).then((edus) => {
-          edu = edus;
-        });
-        await getExp(req.user).then((exps) => {
-          exp = exps;
-        });
-        await getAch(req.user).then((achive) => {
-          ach = achive;
-        });
-      })
-      .then(function () {
-        // console.log(info);
-        return res.render("_fourth.ejs", {
-          skills: skills,
-          info: info,
-          lang: lang,
-          addInfo: addInfo,
-          edu: edu,
-          univ: univ,
-          exp: exp,
-          ach: ach,
-        });
-      });
+
+    handleDb(keys, req, user, newForm).then(async function () {
+      makePdf(req, res);
+    });
   });
 };
+
+module.exports.compilePdf = async (req, res) => {
+  let skills, info, lang, addInfo, edu, univ, exp, ach;
+  let user = await User.findById(req.params.id);
+  await getSkill(user).then((skill) => {
+    skills = skill;
+  });
+  await getPersonalInfo(user).then(function (infos) {
+    console.log(infos);
+    info = infos;
+  });
+  await getLan(user)
+    .then(user)
+    .then(function (lan) {
+      lang = lan;
+    });
+  await getAddInfo(user).then((addInfos) => {
+    addInfo = addInfos;
+  });
+  await getUnivInfo(user).then(function (univInfo) {
+    univ = univInfo;
+  });
+  await getEduForm(user).then((edus) => {
+    edu = edus;
+  });
+  await getExp(user).then((exps) => {
+    exp = exps;
+  });
+  await getAch(req.user).then((achive) => {
+    ach = achive;
+  });
+
+  return res.render("_fourth.ejs", {
+    skills: skills,
+    info: info,
+    lang: lang,
+    addInfo: addInfo,
+    edu: edu,
+    univ: univ,
+    exp: exp,
+    ach: ach,
+  });
+};
+
+// let skills, info, lang, addInfo, edu, univ, exp, ach;
+// await getSkill(req.user).then((skill) => {
+//   skills = skill;
+// });
+// await getPersonalInfo(req.user).then(function (infos) {
+//   console.log(infos);
+//   info = infos;
+// });
+// await getLan(req.user)
+//   .then(req.user)
+//   .then(function (lan) {
+//     lang = lan;
+//   });
+// await getAddInfo(req.user).then((addInfos) => {
+//   addInfo = addInfos;
+// });
+// await getUnivInfo(req.user).then(function (univInfo) {
+//   univ = univInfo;
+// });
+// await getEduForm(req.user).then((edus) => {
+//   edu = edus;
+// });
+// await getExp(req.user).then((exps) => {
+//   exp = exps;
+// });
+// await getAch(req.user).then((achive) => {
+//   ach = achive;
+// });
+
+// return res.render("_fourth.ejs", {
+//   skills: skills,
+//   info: info,
+//   lang: lang,
+//   addInfo: addInfo,
+//   edu: edu,
+//   univ: univ,
+//   exp: exp,
+//   ach: ach,
+// });
