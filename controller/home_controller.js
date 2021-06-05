@@ -119,7 +119,10 @@ module.exports.third = async function (req, res) {
     delete newForm.numTrue;
     let keys = new Array();
     let title = {};
-
+    User.findById(req.user, (err, user) => {
+      user.selected = req.params.id;
+      user.save();
+    });
     for (var prop in newForm) {
       keys.push(prop);
       let heading = prop.charAt(0).toUpperCase() + prop.slice(1);

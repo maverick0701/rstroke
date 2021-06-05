@@ -191,6 +191,7 @@ async function getUnivInfo(user) {
   return univ[0];
 }
 module.exports.resume = async function (req, res) {
+  console.log(req.body.formId);
   Form.findOne({ id: 1 }, async (err, form) => {
     let user = req.user;
     let newForm = form._doc;
@@ -210,7 +211,9 @@ module.exports.resume = async function (req, res) {
 
 module.exports.compilePdf = async (req, res) => {
   let skills, info, lang, addInfo, edu, univ, exp, ach;
+
   let user = await User.findById(req.params.id);
+  console.log(user.selected);
   await getSkill(user).then((skill) => {
     skills = skill;
   });
@@ -248,6 +251,7 @@ module.exports.compilePdf = async (req, res) => {
     univ: univ,
     exp: exp,
     ach: ach,
+    selected: user.selected,
   });
 };
 

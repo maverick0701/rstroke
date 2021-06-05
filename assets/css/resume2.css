@@ -1,8 +1,7 @@
 * {
   padding: 0px;
   margin: 0px;
-  font-family: "Montserrat", sans-serif;
-}
+  font-family: "Josefin Sans", sans-serif; }
 
 .main-page {
   margin: 0px;
@@ -16,8 +15,7 @@
   height: 1464px;
   min-height: 1464px;
   max-height: 1464px;
-  /* border: 1px solid red; */
-}
+  /* border: 1px solid red; */ }
 
 .top {
   width: 100%;
@@ -30,21 +28,20 @@
   justify-content: center;
   /* align-items: center; */
   border-bottom: 2px solid darkgray;
-  /* margin: 0px 0px; */
-}
+  /* margin: 0px 0px; */ }
 
 .Applicant_name {
   margin: 30px;
   margin-right: 50px;
   margin-left: 50px;
   letter-spacing: 5px;
-  font-size: 75px;
-  font-family: "Montserrat", sans-serif;
+  font-size: 65px;
+  /* font-family: 'Nunito Sans', sans-serif; */
+  font-family: "Redressed", cursive;
   font-weight: 600;
   /* border: 2px dashed darkorchid; */
   text-transform: uppercase;
-  overflow-wrap: break-word;
-}
+  overflow-wrap: break-word; }
 
 .Applicant_post {
   margin: 30px;
@@ -55,13 +52,11 @@
   font-size: 20px;
   font-weight: 600;
   /* border: 2px dashed darkorchid; */
-  color: darkgray;
-}
+  color: darkgray; }
 
 .bottom {
   display: flex;
-  flex-direction: row;
-}
+  flex-direction: row; }
 
 .left {
   width: 30%;
@@ -69,8 +64,7 @@
   margin: 0px;
   border-right: 2px solid whitesmoke;
   height: 1238px;
-  background-color: #faa41a;
-}
+  background-color: #faa41a; }
 
 .contact {
   width: 100%;
@@ -78,8 +72,7 @@
   margin: 0px;
   padding: 0px;
   margin-bottom: 15px;
-  /* border: 1px solid red; */
-}
+  /* border: 1px solid red; */ }
 
 .contact-head,
 .skills-head {
@@ -87,16 +80,14 @@
   padding: 15px;
   padding-left: 30px;
   border-bottom: 2px solid whitesmoke;
-  border-top: 2px solid whitesmoke;
-}
+  border-top: 2px solid whitesmoke; }
 
 .contact-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-top: 15px;
-  /* align-items: center; */
-}
+  /* align-items: center; */ }
 
 .mail,
 .ph-num,
@@ -110,13 +101,11 @@
   max-width: 270px;
   /* border: 2px solid red; */
   overflow-wrap: break-word;
-  /* overflow: scroll; */
-}
+  /* overflow: scroll; */ }
 
 a {
   display: inline-block;
-  overflow-wrap: break-word;
-}
+  overflow-wrap: break-word; }
 
 .mail-value,
 .ph-num-value,
@@ -127,9 +116,8 @@ a {
   justify-content: center;
   align-items: center;
   overflow-wrap: break-word;
-  font-weight: 600;
-  font-size: 17px;
-}
+  font-weight: 500;
+  font-size: 17px; }
 
 .mail-icon,
 .ph-num-icon,
@@ -138,18 +126,15 @@ a {
   /* border: 2px solid red; */
   display: flex;
   align-items: center;
-  /* text-align: center; */
-}
+  /* text-align: center; */ }
 
 i {
   margin-right: auto;
   padding-right: 15px;
-  font-size: 20px;
-}
+  font-size: 20px; }
 
 .skills {
-  padding-bottom: 10px;
-}
+  padding-bottom: 10px; }
 
 .skills-head,
 .lang-head,
@@ -157,62 +142,53 @@ i {
   text-align: left;
   padding: 0px auto;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 23px;
   text-transform: uppercase;
-  /* margin-left: 30px; */
-}
+  /* margin-left: 30px; */ }
 
 .skills-body {
-  margin-top: 15px;
-}
+  margin-top: 15px; }
 
 .skill {
   /* width: 100%; */
   padding: 5px 0px 10px 30px;
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 500;
   /* margin-left: 20px; */
-  text-transform: capitalize;
-}
+  text-transform: capitalize; }
 
 .languages {
-  margin-top: 10px;
-}
+  margin-top: 10px; }
 
 .lang-head {
   padding: 15px 15px 15px 30px;
   border-top: 2px solid whitesmoke;
-  border-bottom: 2px solid whitesmoke;
-}
+  border-bottom: 2px solid whitesmoke; }
 
 .additional-info {
-  margin-top: 10px;
-}
+  margin-top: 10px; }
 
 .add-info-head {
   padding: 15px 15px 15px 30px;
   font-size: 18px;
   border-top: 2px solid whitesmoke;
-  border-bottom: 2px solid whitesmoke;
-}
+  border-bottom: 2px solid whitesmoke; }
 
 .add-info-body {
   margin: 10px 30px;
   text-align: justify;
-}
+  font-size: 18px; }
 
 /* ******************************* */
 .right {
   padding: 20px;
-  /* border: 2px solid red; */
-}
+  /* border: 2px solid red; */ }
 
 .summary {
   height: fit-content;
   max-height: 25%;
   /* border-bottom: 2px solid red; */
-  text-align: justify;
-}
+  text-align: justify; }
 
 .summary-head {
   padding-bottom: 10px;
@@ -220,18 +196,16 @@ i {
   font-size: 22px;
   font-weight: 700;
   text-transform: uppercase;
-  border-bottom: 2px solid darkgray;
-}
+  border-bottom: 2px solid darkgray; }
 
 .summary-body {
   padding-bottom: 10px;
-  font-weight: 600;
-}
+  font-weight: 500;
+  font-size: 18px; }
 
 .education {
   margin-top: 10px;
-  overflow-wrap: break-word;
-}
+  overflow-wrap: break-word; }
 
 .education-head {
   padding-bottom: 10px;
@@ -239,45 +213,36 @@ i {
   font-size: 22px;
   font-weight: 700;
   text-transform: uppercase;
-  border-bottom: 2px solid darkgray;
-}
+  border-bottom: 2px solid darkgray; }
 
 .education-body {
-  font-size: 17px;
-  padding-bottom: 10px;
-}
+  font-size: 18px;
+  padding-bottom: 10px; }
 
 .college-name {
-  font-weight: 700;
-}
+  font-weight: 700; }
 
 .college-detail {
   padding: 0px 30px;
   /* border: 2px solid red; */
-  font-weight: 500;
-}
+  font-weight: 500; }
 
 ul {
-  list-style: inside;
-}
+  list-style: inside; }
 
 .std12 {
-  margin-top: 10px;
-}
+  margin-top: 10px; }
 
 .std12-name {
-  font-weight: 700;
-}
+  font-weight: 700; }
 
 .std12-detail {
   padding: 0px 30px;
-  font-weight: 500;
-}
+  font-weight: 500; }
 
 .works {
   margin-top: 10px;
-  text-align: justify;
-}
+  text-align: justify; }
 
 .work-head {
   padding-bottom: 10px;
@@ -285,21 +250,21 @@ ul {
   font-size: 22px;
   font-weight: 700;
   text-transform: uppercase;
-  border-bottom: 2px solid darkgray;
-}
+  border-bottom: 2px solid darkgray; }
 
 .work-body {
   padding-bottom: 10px;
-}
+  font-size: 18px; }
 
 .work-name {
   padding: 5px 0px;
-  font-weight: 700;
-}
+  font-weight: 700; }
 
 .work-detail {
-  padding-left: 30px;
-}
+  padding-left: 30px; }
+
+.achievements {
+  margin-top: 10px; }
 
 .achievement-head {
   padding-bottom: 10px;
@@ -307,14 +272,15 @@ ul {
   font-size: 22px;
   font-weight: 700;
   text-transform: uppercase;
-  border-bottom: 2px solid darkgray;
-}
+  border-bottom: 2px solid darkgray; }
 
 .achievement-body {
   text-align: justify;
-}
+  font-size: 18px; }
 
-.change-color {
-  background-color: #00b7ff;
-  color: black;
-}
+.change-color2 {
+  background-color: #7bd892;
+  color: black; }
+
+.heading-txt {
+  font-family: "Redressed", cursive; }

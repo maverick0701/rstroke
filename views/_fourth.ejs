@@ -2,7 +2,7 @@
   href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
   rel="stylesheet"
 />
-<link rel="stylesheet" href="/css/resume.css" />
+<link rel="stylesheet" href="/css/resume2.css" />
 <link rel="preconnect" href="https://fonts.gstatic.com" />
 
 <div class="main-page">
@@ -13,7 +13,11 @@
     </div>
   </div>
   <div class="bottom">
-    <div class="left">
+    <%if(selected=='2'){%>
+    <div class="left change-color2">
+      <%}else{%>
+      <div class="left"></div>
+      <%}%>
       <div class="contact">
         <div class="contact-body">
           <div class="mail">
